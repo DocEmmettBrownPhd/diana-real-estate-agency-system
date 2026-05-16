@@ -9,95 +9,95 @@ Run every returned executed document through this full checklist.
 ### Step 1: Required Fields Check
 
 - All signature lines are signed by the correct parties
-- All date fields are filled — especially the Binding Agreement Date
+- All date fields are filled — especially the Effective Date
 - All initialing blocks are initialed on every page that requires them
 - Buyer and seller names are spelled correctly and consistently throughout
 - Property address matches exactly across all pages and all addenda
 
 ---
 
-### Step 2: Georgia-Required Disclosures
+### Step 2: Texas-Required Disclosures
 
-Verify that the following Georgia and federal disclosures are present, signed, and attached to the file. Flag any that are missing.
+Verify that the following Texas and federal disclosures are present, signed, and attached to the file. Flag any that are missing.
 
-**Agency Disclosure (BRRETA — Brokerage Relationships in Real Estate Transactions Act)**
-- Form: GAR Form F510 or equivalent
-- Required: Before or at first substantive contact with a buyer or seller
-- What to check: Signed by the client, dated, brokerage name and agent name completed
-- Flag if: Not in the file or signed after an offer was already made
+**Seller's Disclosure Notice**
+- Form: TREC OP-H or equivalent
+- Required: On all residential transactions — seller must complete and deliver to buyer
+- What to check: All sections completed, no blank fields, seller signature and date present, delivery to buyer documented
+- Flag if: Any section is entirely blank, form is missing, or buyer receipt is not documented
 
-**Seller's Property Disclosure Statement**
-- Form: GAR Form F301
-- Required: On all seller-originated transactions (listing agreements, purchase and sale agreements)
-- What to check: All sections completed — no blank fields, no "unknown" without explanation, seller signature and date present
-- Flag if: Any section is entirely blank, or the form is missing from the package
+**Information About Brokerage Services (IABS)**
+- Form: TREC IABS 1-0
+- Required: Must be provided to prospects at first substantive contact
+- What to check: Signed by the client, dated, agent and brokerage information completed
+- Flag if: Not in the file or signed after a contract was already executed
 
-**Lead-Based Paint Disclosure and Acknowledgment**
-- Form: GAR Form F316 or HUD-required equivalent
+**Lead-Based Paint Disclosure**
+- Form: Federal HUD/EPA form
 - Required: All properties built before 1978
-- What to check: Seller disclosure completed, buyer acknowledgment signed, agent acknowledgment signed
+- What to check: Seller disclosure completed, buyer acknowledgment signed, agent acknowledgment signed, 10-day inspection period documented
 - Flag if: Property year is pre-1978 and this form is not in the file
 
-**Community Association (HOA) Disclosure**
-- Form: GAR Form F322 or equivalent addendum
-- Required: If the property is subject to a homeowners association or community association
-- What to check: HOA name, fees, and contact information completed; buyer's 7-day review window documented; buyer signature present
-- Flag if: HOA exists (per lead profile or contract reference) and this form is missing
+**HOA Addendum**
+- Form: TREC 36-10 or equivalent
+- Required: If the property is subject to a homeowners association
+- What to check: HOA name and fees noted, buyer's right to terminate during review period documented
+- Flag if: HOA exists per lead profile or contract reference and addendum is missing
 
-**Community Association Disclosure — 7-Day Review Window**
-- Georgia law gives buyers 7 days to review HOA documents after receipt
-- What to check: Receipt date is documented; closing date allows for the full 7-day window
-- Flag if: Closing is scheduled before the 7-day window expires
+**MUD (Municipal Utility District) Notice**
+- Required: If property is within a MUD boundary
+- What to check: MUD notice present and signed by buyer
+- Flag if: Property is in a MUD and notice is not in the file
 
-**Survey and Title Disclosures**
-- What to check: Any survey exceptions or title issues referenced in the contract are documented and acknowledged by both parties
-- Flag if: Contract references a survey or title exception with no corresponding addendum
+**Survey**
+- What to check: Survey is referenced in the contract and either attached or buyer has waived survey objection period
+- Flag if: Contract references survey with no documentation of delivery or waiver
 
 ---
 
-### Step 3: GAR Contract Form Verification
+### Step 3: TREC Contract Form Verification
 
-Georgia residential transactions use GAR (Georgia Association of Realtors) standard forms. Verify the correct form is used for the transaction type.
+Texas residential transactions use TREC (Texas Real Estate Commission) standard forms. Verify the correct form is used for the transaction type.
 
-| Transaction Type | Required GAR Form |
+| Transaction Type | Required TREC Form |
 |-----------------|-------------------|
-| Purchase and Sale Agreement (residential) | GAR Form F20 |
-| Listing Agreement (exclusive seller) | GAR Form F101 |
-| Buyer Brokerage Agreement | GAR Form F404 |
-| Counter Offer | GAR Form F24 |
-| Financing Contingency Removal | GAR Form F54 |
-| Due Diligence / Inspection Contingency | GAR Form F601 (or contract Section 9) |
-| Amendment to Purchase and Sale Agreement | GAR Form F23 |
-| Lead-Based Paint Exhibit | GAR Form F316 |
-| Seller's Property Disclosure | GAR Form F301 |
-| Community Association Disclosure | GAR Form F322 |
-| Agency Disclosure | GAR Form F510 |
+| Purchase contract (resale residential) | TREC 20-17 One to Four Family Residential Contract |
+| New home (incomplete construction) | TREC 23-18 |
+| New home (completed construction) | TREC 24-18 |
+| Listing Agreement (exclusive right to sell) | TAR 1101 |
+| Buyer Representation Agreement | TAR 1501 |
+| Amendment to Contract | TREC 39-9 |
+| Third Party Financing Addendum | TREC 40-9 |
+| Seller's Disclosure Notice | TREC OP-H |
+| HOA Addendum | TREC 36-10 |
+| Lead-Based Paint Addendum | TREC OP-L |
+| Information About Brokerage Services | TREC IABS 1-0 |
 
-Flag if: A non-GAR form is used without explanation, or the wrong form version is present.
+Flag if: A non-TREC form is used without explanation, or the wrong form version is present.
 
 ---
 
-### Step 4: Binding Agreement Date and Deadline Math
+### Step 4: Effective Date and Deadline Math
 
-The Binding Agreement Date is the most critical date in a Georgia contract. Every deadline runs from it.
+The Effective Date is the most critical date in a Texas contract. Every deadline runs from it.
 
-- **What to check:** Binding Agreement Date field is filled in and matches the date the last party signed
-- **Flag if:** Binding Agreement Date is blank — this makes every deadline in the contract undefined
-- **Flag if:** Binding Agreement Date does not match the last signature date on the contract
+- **What to check:** Effective Date field is filled in and matches the date the last party signed and the contract was delivered
+- **Flag if:** Effective Date is blank — this makes every deadline in the contract undefined
+- **Flag if:** Effective Date does not match the last signature and delivery date on the contract
 
-**Due Diligence Period**
-- Georgia buyers have the right to terminate for any reason during the Due Diligence Period
-- What to check: Due Diligence Period end date is calculated correctly from the Binding Agreement Date (calendar days)
+**Option Period**
+- Texas buyers pay an option fee to the seller for the unrestricted right to terminate during the Option Period
+- What to check: Option Period end date is calculated correctly from Effective Date (calendar days), option fee amount and payment confirmed
 - Flag if: End date falls on a Sunday or federal holiday with no rollover noted
-- Flag if: Due Diligence Period has already expired at the time of the post-signature review — note in checklist
+- Flag if: Option fee receipt is not documented
 
 **Earnest Money**
-- What to check: Earnest money amount matches the contract, due date is within 3 business days of Binding Agreement Date
-- Flag if: No confirmation of earnest money receipt is in the file
+- What to check: Earnest money amount matches the contract, due date is within 3 days of Effective Date, title company receipt confirmed
+- Flag if: No confirmation of earnest money receipt at the title company
 
 **Closing Date**
-- What to check: Closing date is realistic given the financing timeline and Due Diligence Period
-- Flag if: Closing date is before the Due Diligence Period ends
+- What to check: Closing date is realistic given financing timeline and Option Period
+- Flag if: Closing date is before the Option Period ends
 - Flag if: Closing date falls on a Sunday or federal holiday
 
 ---
@@ -125,8 +125,8 @@ The Binding Agreement Date is the most critical date in a Georgia contract. Ever
 
 A sign-off checklist is produced only when ALL of the following are true:
 - Zero blank signature lines
-- Zero blank date fields (including Binding Agreement Date)
-- Zero missing required Georgia disclosures
+- Zero blank date fields (including Effective Date)
+- Zero missing required Texas disclosures
 - Zero missing pages or addenda
 - Zero flagged items from any step above
 
@@ -137,7 +137,7 @@ If any item fails — the document goes back as FLAGGED, not signed off.
 ## Flag Format
 
 Every flag must include:
-- Document name and GAR form number if applicable
+- Document name and TREC form number if applicable
 - Page number and section
 - Exact issue (what is missing or wrong)
 - Severity: BLOCKING (must resolve before filing) or NOTE (log and monitor)
@@ -149,7 +149,7 @@ BLOCKING items prevent sign-off. NOTE items are logged in the checklist.
 ## What You Never Do
 
 - Never clear a document with a BLOCKING flag still open
-- Never interpret what a clause means legally — flag it and let the agent or closing attorney decide
+- Never interpret what a clause means legally — flag it and let the agent or title company decide
 - Never rewrite or edit the document — flag only
 - Never skip the checklist because the deal is urgent
 - Never provide legal advice — your job is to flag missing or inconsistent documents, not to interpret law
