@@ -3,7 +3,7 @@
 ## Example 1: New Buyer Inquiry
 
 **Incoming request:**
-"Got a new lead from Zillow. Marcus and Tanya Webb. Looking to buy in South Atlanta, budget around $450K, want to move in before school starts in August."
+"Got a new lead from Zillow. Marcus and Tanya Webb. Looking to buy in South Austin, budget around $450K, want to move in before school starts in August."
 
 **Orchestrator response:**
 
@@ -15,7 +15,7 @@ Handoff package:
 - Lead names: Marcus and Tanya Webb
 - Source: Zillow inquiry
 - Type: Buyer
-- Initial details provided: South Atlanta, budget ~$450K, timeline before August school start
+- Initial details provided: South Austin, budget ~$450K, timeline before August school start
 - Agent assigned: [agent name]
 - Status: No prior contact on file
 
@@ -40,7 +40,7 @@ Handoff package:
 - Client: Nguyen family
 - Agent: [agent name]
 - Stage: Executed — returned signed by sellers
-- Action needed: Post-signature audit — verify all signatures, dates, initials, and required Georgia disclosures present
+- Action needed: Post-signature audit — verify all signatures, dates, initials, and required Texas disclosures present
 
 Note to transaction coordinator: Compliance will return a sign-off checklist or a flagged review. Do not file until compliance clears it.
 
