@@ -3,7 +3,7 @@
 ## Example 1: Buyer Profile — Complete with DPA and Lender Match
 
 **Incoming handoff from orchestrator:**
-Lead: Marcus and Tanya Webb. Buyer. South Atlanta area, ~$450K, before August school start.
+Lead: Marcus and Tanya Webb. Buyer. South Austin, ~$450K, before August school start.
 
 **Lead Qualifier output:**
 
@@ -22,8 +22,8 @@ Agent assigned: [agent name]
 - Financing type: Conventional
 
 **Target Area**
-- Primary: South Atlanta (30310, 30311, 30315)
-- Secondary: Would consider College Park or East Point if under $420K
+- Primary: South Austin (78745, 78748, 78749)
+- Secondary: Would consider Buda or Kyle if under $420K
 - Must-haves: Minimum 3 bed / 2 bath, garage or covered parking, yard for dog
 - Hard no: HOA communities
 
@@ -32,7 +32,7 @@ Agent assigned: [agent name]
 - Urgency: High — date-driven by school calendar
 
 **Current Living Situation**
-- Currently renting in North Atlanta
+- Currently renting in North Austin
 - Month-to-month lease — can move with 30-day notice
 - No current ownership
 
@@ -50,25 +50,25 @@ Agent assigned: [agent name]
 
 **Down Payment Assistance — Matched Programs**
 
-- Program: Georgia Dream Homeownership Program
-  Assistance: Up to $10,000 toward down payment and closing costs
-  Match reason: First-time buyers, conventional loan, income likely within limits for Atlanta MSA
-  Next step: Confirm household income against Georgia Dream limits; buyer must complete homebuyer education course before closing
+- Program: My First Texas Home (TDHCA)
+  Assistance: Up to 5% of loan amount (~$21,875 on $437,500 loan) toward down payment and closing costs
+  Match reason: First-time buyers, conventional loan, income likely within TDHCA limits for Austin MSA
+  Next step: Confirm household income against TDHCA limits; buyer must complete homebuyer education course before closing
 
-- Program: Invest Atlanta — HOME Investment Partnership Program
-  Assistance: Up to $10,000 forgivable loan
-  Match reason: First-time buyers purchasing within City of Atlanta limits; income eligibility likely met
-  Next step: Confirm property address falls within City of Atlanta boundaries; apply through Invest Atlanta
+- Program: Texas Mortgage Credit Certificate (MCC)
+  Assistance: Federal tax credit up to 40% of annual mortgage interest (up to $2,000/year)
+  Match reason: First-time buyers — stackable with My First Texas Home for maximum benefit
+  Next step: Apply through TDHCA-approved lender at same time as My First Texas Home
 
-Note: If both programs are stackable (confirm with lender), total DPA could reach $20,000 — significantly reducing out-of-pocket at close.
+Note: Both programs are stackable — confirm with lender. Combined benefit significantly reduces first-year cost of ownership.
 
 **Preferred Lenders — Matched**
 
-- Lender: Movement Mortgage — Atlanta
-  Specialty match: Conventional loans, Georgia Dream approved, fast closing model (strong fit for tight timeline)
+- Lender: Cornerstone Home Lending — Austin
+  Specialty match: Already pre-approved here; TDHCA approved lender; strong local market knowledge
 
-- Lender: Ameris Bank — Atlanta
-  Specialty match: Georgia Dream approved, local decision-making — good backup if Movement cannot close by July 31
+- Lender: Movement Mortgage — Austin
+  Specialty match: Fast closing model — strong backup if timeline is at risk
 
 ---
 Route to: 02_property_research
@@ -79,7 +79,7 @@ Include: This full profile
 ## Example 2: Seller Profile — With Red Flag and Prep Checklist
 
 **Incoming handoff from orchestrator:**
-Lead: Patricia Odom. Seller. Inherited home in southwest Atlanta. Wants to list ASAP.
+Lead: Patricia Odom. Seller. Inherited home in Pflugerville. Wants to list ASAP.
 
 **Lead Qualifier output:**
 
@@ -92,7 +92,7 @@ Agent assigned: [agent name]
 **Type:** Seller
 
 **Property**
-- Address: [captured from client — southwest Atlanta area]
+- Address: 412 Millbrook Ln, Pflugerville TX 78660
 - Type: Single-family residential
 - Condition: Unknown — client has not seen interior in 18 months
 - Occupancy: Vacant
@@ -127,26 +127,18 @@ Agent assigned: [agent name]
 
 Priority items (agent to confirm at walkthrough):
 - Address exterior condition first — vacant property sitting 18 months likely needs curb appeal work
-- HVAC service and documentation before listing (disclosure requirement)
+- HVAC service and documentation before listing (Texas disclosure requirement)
 - Deep clean entire interior — vacant homes accumulate dust and odor quickly
 - Check for vandalism or damage from extended vacancy
 
-Full checklist attached (agent reviews with client after walkthrough):
-[ ] Curb appeal — lawn, walkway, front door, house numbers
-[ ] Deep clean entire home
-[ ] Touch-up interior paint
-[ ] Replace burned-out bulbs
-[ ] Service HVAC — have receipt ready for disclosure
-[ ] Check roof for visible damage
-[ ] Repair any leaky faucets
-[ ] Gather documentation: survey, utility history, any warranty paperwork
+Full checklist attached (agent reviews with client after walkthrough).
 
 **Photo Analysis**
 Status: Not yet submitted
-Next step: Send photo submission form to Patricia Odom once interior walkthrough is complete and basic cleanup is done. Do not send form before walkthrough — current condition may produce a misleading baseline report.
+Next step: Send photo submission form to Patricia Odom once interior walkthrough is complete and basic cleanup is done.
 
 ---
-Route to: 02_property_research (comparables for southwest Atlanta area)
+Route to: 02_property_research (comparables for Pflugerville area)
 Also route: Listing agreement to 05_compliance once lien is cleared
 
 ---
@@ -169,26 +161,11 @@ WHAT WORKS:
 
 RECOMMENDED BEFORE PHOTOS / SHOWINGS:
 - Power wash the front walkway and driveway — visible staining in photos
-- Repaint front door (current color is faded) — a fresh dark color (navy, black, charcoal) photographs well and adds instant curb appeal
+- Repaint front door — a fresh dark color (navy, black, charcoal) photographs well
 - Remove the broken planter on left side of porch before any photos
 - Add two matching potted plants flanking the front door
 
-PRIORITY: High — first exterior photo is the listing thumbnail; this is the most important room in the report
-
----
-ROOM: Living Room
-PHOTO COUNT: 4
-
-WHAT WORKS:
-- Good natural light from front windows — keep curtains fully open for listing photos
-- Hardwood floors are a strong feature — make sure they are clean and polished
-
-RECOMMENDED BEFORE PHOTOS / SHOWINGS:
-- Remove the remaining furniture (one chair, one side table) — room shows larger empty
-- Clean all windows inside and out before photos
-- Touch-up the baseboard paint on the north wall — visible scuff marks in photo 3
-
-PRIORITY: Medium — good bones; small cleanup gets this room photo-ready
+PRIORITY: High — first exterior photo is the listing thumbnail
 
 ---
 ROOM: Kitchen
@@ -198,26 +175,13 @@ WHAT WORKS:
 - Cabinet layout is functional and will photograph well with counters clear
 
 RECOMMENDED BEFORE PHOTOS / SHOWINGS:
-- Deep clean inside and outside of all appliances — refrigerator is still in place and has visible grime
+- Deep clean inside and outside of all appliances
 - Clean grout lines on countertop tile — discoloration visible in photo 1
-- Replace the under-cabinet light fixture — visible in photo 2 with broken cover
+- Replace the under-cabinet light fixture — broken cover visible in photo 2
 
 PRIORITY: High — kitchens sell homes; this one needs cleaning before any photos
 
 ---
-ROOM: Primary Bedroom
-PHOTO COUNT: 2
-
-WHAT WORKS:
-- Room size reads well — good proportions for the price point
-
-RECOMMENDED BEFORE PHOTOS / SHOWINGS:
-- Patch and paint the wall behind where the bed was — bracket holes visible
-- Clean and stage with minimal furniture if possible (agent to advise)
-
-PRIORITY: Medium
-
----
 END OF REPORT
 
-Agent note: Review this report with Patricia before sharing. Prioritize front exterior and kitchen — those two rooms will have the most impact on buyer first impressions and online clicks.
+Agent note: Prioritize front exterior and kitchen — those two rooms will have the most impact on buyer first impressions and online clicks.
