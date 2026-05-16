@@ -321,6 +321,83 @@ DOCUMENT COMES BACK SIGNED
 
 ---
 
+## ESCALATION PATH — WHEN TO STOP AND GET DIANA
+
+The system handles most situations automatically. But some decisions belong to Diana only. Stop the workflow and contact Diana directly when any of the following occur:
+
+```
+SITUATION                          ACTION
+-----------------------------------------------------------------
+Compliance flags a BLOCKING        Stop. Do not file. Contact Diana
+issue and transaction              before taking any next step.
+coordinator cannot resolve it
+-----------------------------------------------------------------
+A lien, probate, or title          Stop. Do not proceed to listing
+issue is unresolved after          or contract. Diana decides.
+2 attempts to get documentation
+-----------------------------------------------------------------
+A client wants to negotiate        Stop drafting. Contact Diana.
+outside the terms already          Agent negotiates — not the system.
+agreed upon
+-----------------------------------------------------------------
+A deadline has already passed      Flag immediately. Contact Diana
+with no prior alert sent           with the exact deadline, what
+                                   was missed, and the impact.
+-----------------------------------------------------------------
+A required signer is               Stop. Contact Diana. Do not
+unreachable or refusing            proceed without all signatures.
+to sign
+-----------------------------------------------------------------
+A document comes back with         Stop. Contact Diana and the
+alterations made by the            closing attorney before
+other party (not in the            proceeding.
+original contract)
+-----------------------------------------------------------------
+Any situation not covered          Stop. Contact Diana. Do not
+by the specialist rules            guess or improvise.
+-----------------------------------------------------------------
+```
+
+**The rule:** When in doubt, stop and ask Diana. A delayed deal is recoverable. A wrong decision is not.
+
+---
+
+## GEORGIA REAL ESTATE GLOSSARY
+
+Terms every agent on this team needs to know. These are used throughout the system.
+
+**Binding Agreement Date (BAD)**
+The date the last party signs the contract and it becomes legally binding. This is the date every deadline in a Georgia contract counts from. If this date is blank or wrong, every other deadline is wrong. Always confirm it the moment a contract is executed.
+
+**Due Diligence Period**
+A window of time — agreed upon in the contract, typically 7–14 days from the Binding Agreement Date — during which the buyer has the right to terminate the contract for any reason and receive their earnest money back. Once this period expires, the buyer is committed. Track this deadline closely — it is one of the most important dates in a Georgia deal.
+
+**GAR Forms**
+Georgia Association of Realtors standard contract forms. Georgia residential transactions use these forms. The most common ones in this system: F20 (Purchase and Sale Agreement), F301 (Seller's Property Disclosure), F510 (Agency Disclosure), F322 (Community Association Disclosure), F316 (Lead-Based Paint).
+
+**BRRETA (Brokerage Relationships in Real Estate Transactions Act)**
+Georgia law that governs the relationship between agents and clients. Requires agents to disclose their agency relationship — who they represent — at or before first substantive contact with a buyer or seller. The disclosure form is GAR Form F510. If this is missing from a file, it is a compliance gap.
+
+**Earnest Money**
+A deposit made by the buyer when the contract is executed, held by the listing broker or closing attorney. Shows the buyer is serious. In Georgia, typically due within 3 business days of the Binding Agreement Date. If the deal falls through during the Due Diligence Period, the buyer gets it back. After the Due Diligence Period expires, the seller may be entitled to it if the buyer defaults.
+
+**Attorney-Close State**
+Georgia requires a licensed closing attorney to conduct the real estate closing. A title officer cannot close a deal in Georgia — it must be an attorney. The closing attorney prepares the closing documents, conducts the closing, and disburses funds.
+
+**Seller's Property Disclosure Statement (GAR Form F301)**
+A required form in Georgia where the seller discloses the known condition of the property — roof, HVAC, plumbing, electrical, foundation, and more. Must be completed and signed by the seller. If a section is blank, it is a compliance flag.
+
+**Community Association / HOA Disclosure (GAR Form F322)**
+Required when a property is subject to a homeowners association or community association. Georgia law gives the buyer 7 days to review HOA documents after receiving them. If the closing date does not allow for this window, the timeline must be adjusted.
+
+**DPA (Down Payment Assistance)**
+Programs that help buyers cover the down payment and closing costs. In Atlanta, the main programs are Georgia Dream (state), Invest Atlanta HOME and Homestretch (city), and federal programs (VA, USDA). Matched to each buyer's specific situation during lead qualification.
+
+**List-to-Sale Ratio**
+The percentage relationship between a property's list price and its final sale price. A ratio above 100% means homes are selling above asking price (competitive market). Below 100% means buyers have negotiating leverage. Used by the property research specialist to set price expectations.
+
+---
+
 ## DAY ONE — NEW AGENT CHECKLIST
 
 ```
