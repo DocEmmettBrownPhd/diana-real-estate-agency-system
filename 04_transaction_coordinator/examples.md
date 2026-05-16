@@ -69,10 +69,10 @@ DOCUMENT CHECKLIST — Webb Purchase, [Address]
 Status as of [date]
 
 RECEIVED AND FILED
-- [x] Executed purchase agreement
+- [x] Executed purchase agreement (TREC 20-17)
 - [x] Earnest money receipt from title
 - [x] Inspection report
-- [x] Seller's disclosure notice
+- [x] Seller's Disclosure Notice (TREC OP-H)
 
 PENDING — IN PROCESS
 - [ ] Repair amendment or price reduction addendum — drafting in progress
@@ -86,7 +86,7 @@ PENDING — NOT YET STARTED
 - [ ] Settlement statement
 
 COMPLIANCE STATUS
-- All received documents routed to 05_compliance on receipt.
-- Repair amendment will route to 05_compliance before delivery to listing agent.
+- All received executed documents routed to 05_compliance on receipt.
+- Repair amendment will route to 05_compliance after it comes back signed.
 
 ---
