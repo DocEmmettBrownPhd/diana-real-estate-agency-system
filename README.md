@@ -1,6 +1,6 @@
 # Diana's Real Estate Agency System
 
-An AI operating system for a four-person boutique real estate team in Atlanta. Six specialists work together, each owning one part of the workflow. Every request enters through the orchestrator and moves forward through explicit handoffs. A new agent can be operational in a day.
+An AI operating system for a four-person boutique real estate team in Austin. Six specialists work together, each owning one part of the workflow. Every request enters through the orchestrator and moves forward through explicit handoffs. A new agent can be operational in a day.
 
 ---
 
@@ -42,7 +42,7 @@ Work flows left to right. Each specialist receives a structured handoff from the
 | `02_property_research/` | Property Researcher | Comparables, neighborhood data, school ratings, market analysis per client profile. |
 | `03_client_communication/` | Client Communicator | Emails, texts, follow-ups. Writes in the voice of the agent on the deal. |
 | `04_transaction_coordinator/` | Transaction Coordinator | Deadlines, document checklists, who owes what, risk flags once a deal is live. |
-| `05_compliance/` | Compliance Reviewer | Reviews all documents after they come back signed. Flags issues. Produces sign-off checklist. Georgia-specific disclosure requirements. |
+| `05_compliance/` | Compliance Reviewer | Reviews all documents after they come back signed. Flags issues. Produces sign-off checklist. Texas-specific disclosure requirements. |
 | `06_agent_onboarding/` | Agent Onboarding | Visual system overview for Diana, team members, and new agents. Flow charts and step-by-step maps of how the system works. |
 
 ---
@@ -105,4 +105,4 @@ Every specialist folder is self-contained. You do not need to understand the who
 
 **Compliance after signature.** Document review happens when executed documents return. This is where errors and missing signatures actually matter — catching them before filing protects the team from liability.
 
-**Georgia-specific compliance.** The compliance specialist knows Georgia's required forms by name (GAR forms), understands the Binding Agreement Date clock, and flags Georgia-specific disclosures — not generic national checklists.
+**Texas-specific compliance.** The compliance specialist knows Texas's required forms by name (TREC forms), understands the Option Period and effective date clock, and flags Texas-specific disclosures — not generic national checklists.
