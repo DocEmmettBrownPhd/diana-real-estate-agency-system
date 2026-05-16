@@ -125,8 +125,8 @@ STEP 4               STEP 5               STEP 6
 |                  | Who owes what                            | review           |
 +------------------+------------------------------------------+------------------+
 | 05 Compliance    | Post-signature document audit            | Pre-delivery     |
-|                  | Georgia disclosure verification          | review           |
-|                  | GAR form checklist                       | Drafting docs    |
+|                  | Texas disclosure verification            | review           |
+|                  | TREC form checklist                      | Drafting docs    |
 |                  | Sign-off checklist                       |                  |
 +------------------+------------------------------------------+------------------+
 | 06 Onboarding    | System explanation                       | Live deals       |
@@ -165,7 +165,7 @@ Every specialist passes a structured block to the next one. No loose summaries. 
 05 COMPLIANCE
         |
         |  passes: SIGN-OFF CHECKLIST or FLAGGED REVIEW
-        |  (includes: Georgia disclosure verification, Binding Agreement Date check)
+        |  (includes: TREC disclosure verification, Effective Date check)
         v
      FILED / RESOLVED
 ```
@@ -191,13 +191,13 @@ BUYER SUBMITS INQUIRY
          |
          v
 +-------------------+
-| DPA MATCHING      |   <-- Georgia Dream, Invest Atlanta,
-| (Atlanta, GA)     |       VA, USDA, FHA options matched
+| DPA MATCHING      |   <-- My First Texas Home, City of
+| (Austin, TX)      |       Austin DPA, VA, USDA matched
 +-------------------+   to THIS buyer's situation
          |
          v
 +-------------------+
-| LENDER MATCH      |   <-- 2-3 Atlanta lenders matched
+| LENDER MATCH      |   <-- 2-3 Austin lenders matched
 |                   |       to buyer's loan type
 +-------------------+
          |
@@ -280,33 +280,36 @@ record            coordinator
 
 ---
 
-## GEORGIA COMPLIANCE QUICK REFERENCE
+## TEXAS COMPLIANCE QUICK REFERENCE
 
 ```
 DOCUMENT COMES BACK SIGNED
          |
          v
 +---------------------------+
-| CHECK BINDING AGREEMENT   |  <-- This date starts EVERY clock
-| DATE — is it filled in?   |      If blank: BLOCKING flag
+| CHECK EFFECTIVE DATE      |  <-- This date starts EVERY clock
+| — is it filled in?        |      If blank: BLOCKING flag
 +---------------------------+
          |
          v
 +---------------------------+
-| CHECK REQUIRED GAR FORMS  |
+| CHECK REQUIRED TREC FORMS |
 |                           |
-| F510 - Agency (BRRETA)    |  <-- Required before first contact
-| F301 - Seller Disclosure  |  <-- Required on all listings
-| F316 - Lead Paint         |  <-- Required if built before 1978
-| F322 - HOA Disclosure     |  <-- Required if HOA exists
-| F20  - Purchase & Sale    |  <-- Main contract form
+| IABS 1-0  - Brokerage     |  <-- Required at first contact
+|             Services      |
+| OP-H      - Seller's      |  <-- Required on all listings
+|             Disclosure    |
+| OP-L      - Lead Paint    |  <-- Required if built before 1978
+| 36-10     - HOA Addendum  |  <-- Required if HOA exists
+| 20-17     - Purchase      |  <-- Main contract form
+|             Contract      |
 +---------------------------+
          |
          v
 +---------------------------+
-| CHECK DUE DILIGENCE       |  <-- Buyer can terminate in this
-| PERIOD DATES              |      window. Must be calculated
-|                           |      correctly from BAD.
+| CHECK OPTION PERIOD       |  <-- Buyer can terminate in this
+| DATES AND OPTION FEE      |      window. Fee paid to seller.
+|                           |      Calculated from Effective Date.
 +---------------------------+
          |
          v
@@ -349,8 +352,8 @@ unreachable or refusing            proceed without all signatures.
 to sign
 -----------------------------------------------------------------
 A document comes back with         Stop. Contact Diana and the
-alterations made by the            closing attorney before
-other party (not in the            proceeding.
+alterations made by the            title company before proceeding.
+other party (not in the
 original contract)
 -----------------------------------------------------------------
 Any situation not covered          Stop. Contact Diana. Do not
@@ -362,36 +365,36 @@ by the specialist rules            guess or improvise.
 
 ---
 
-## GEORGIA REAL ESTATE GLOSSARY
+## TEXAS REAL ESTATE GLOSSARY
 
 Terms every agent on this team needs to know. These are used throughout the system.
 
-**Binding Agreement Date (BAD)**
-The date the last party signs the contract and it becomes legally binding. This is the date every deadline in a Georgia contract counts from. If this date is blank or wrong, every other deadline is wrong. Always confirm it the moment a contract is executed.
+**Effective Date**
+The date the last party signs the contract AND the executed contract is delivered to the other party. This is the date every deadline in a Texas contract counts from. If this date is blank or wrong, every other deadline is wrong. Always confirm it the moment a contract is executed.
 
-**Due Diligence Period**
-A window of time — agreed upon in the contract, typically 7–14 days from the Binding Agreement Date — during which the buyer has the right to terminate the contract for any reason and receive their earnest money back. Once this period expires, the buyer is committed. Track this deadline closely — it is one of the most important dates in a Georgia deal.
+**Option Period**
+A window of time — agreed upon in the contract, typically 5–10 days from the Effective Date — during which the buyer has the unrestricted right to terminate the contract for any reason. The buyer pays an Option Fee directly to the seller to secure this right. Once the Option Period expires, the buyer is committed. Track this deadline closely.
 
-**GAR Forms**
-Georgia Association of Realtors standard contract forms. Georgia residential transactions use these forms. The most common ones in this system: F20 (Purchase and Sale Agreement), F301 (Seller's Property Disclosure), F510 (Agency Disclosure), F322 (Community Association Disclosure), F316 (Lead-Based Paint).
+**Option Fee**
+A small amount paid directly by the buyer to the seller (not the title company) to secure the Option Period. Typically $100–$500. If not paid on time, the buyer may lose their right to terminate. Must be documented and receipt confirmed.
 
-**BRRETA (Brokerage Relationships in Real Estate Transactions Act)**
-Georgia law that governs the relationship between agents and clients. Requires agents to disclose their agency relationship — who they represent — at or before first substantive contact with a buyer or seller. The disclosure form is GAR Form F510. If this is missing from a file, it is a compliance gap.
+**TREC Forms**
+Texas Real Estate Commission standard contract forms. Texas residential transactions use these forms. The most common ones: TREC 20-17 (Purchase Contract), TREC OP-H (Seller's Disclosure), TREC IABS 1-0 (Brokerage Services), TREC 36-10 (HOA Addendum), TREC OP-L (Lead Paint).
+
+**IABS (Information About Brokerage Services)**
+Texas law requires agents to provide this form at or before first substantive contact with a buyer or seller. It explains agency relationships — who the agent represents. Form: TREC IABS 1-0. If missing from a file, it is a compliance gap.
 
 **Earnest Money**
-A deposit made by the buyer when the contract is executed, held by the listing broker or closing attorney. Shows the buyer is serious. In Georgia, typically due within 3 business days of the Binding Agreement Date. If the deal falls through during the Due Diligence Period, the buyer gets it back. After the Due Diligence Period expires, the seller may be entitled to it if the buyer defaults.
+A deposit made by the buyer, held by the title company (not the agent or broker). Shows the buyer is serious. In Texas, typically due within 3 days of the Effective Date. If the deal falls through during the Option Period, the buyer gets it back. After the Option Period expires, the seller may be entitled to it if the buyer defaults.
 
-**Attorney-Close State**
-Georgia requires a licensed closing attorney to conduct the real estate closing. A title officer cannot close a deal in Georgia — it must be an attorney. The closing attorney prepares the closing documents, conducts the closing, and disburses funds.
+**Title-Close State**
+Texas real estate closings are conducted by a licensed title company — not an attorney (unlike some other states). The title company prepares closing documents, conducts the closing, and disburses funds. All earnest money is held at the title company.
 
-**Seller's Property Disclosure Statement (GAR Form F301)**
-A required form in Georgia where the seller discloses the known condition of the property — roof, HVAC, plumbing, electrical, foundation, and more. Must be completed and signed by the seller. If a section is blank, it is a compliance flag.
-
-**Community Association / HOA Disclosure (GAR Form F322)**
-Required when a property is subject to a homeowners association or community association. Georgia law gives the buyer 7 days to review HOA documents after receiving them. If the closing date does not allow for this window, the timeline must be adjusted.
+**Seller's Disclosure Notice (TREC OP-H)**
+A required form in Texas where the seller discloses the known condition of the property — roof, HVAC, plumbing, electrical, foundation, and more. Must be completed and signed by the seller. Buyer has a right to terminate within a set period after receipt if not previously provided.
 
 **DPA (Down Payment Assistance)**
-Programs that help buyers cover the down payment and closing costs. In Atlanta, the main programs are Georgia Dream (state), Invest Atlanta HOME and Homestretch (city), and federal programs (VA, USDA). Matched to each buyer's specific situation during lead qualification.
+Programs that help buyers cover the down payment and closing costs. In Austin, the main programs are My First Texas Home (state), Texas MCC (tax credit), City of Austin DPA (city), and federal programs (VA, USDA). Matched to each buyer's specific situation during lead qualification.
 
 **List-to-Sale Ratio**
 The percentage relationship between a property's list price and its final sale price. A ratio above 100% means homes are selling above asking price (competitive market). Below 100% means buyers have negotiating leverage. Used by the property research specialist to set price expectations.
@@ -407,9 +410,9 @@ The percentage relationship between a property's list price and its final sale p
 [ ] 3. Read 01_lead_qualifier/identity.md and rules.md
         — this is where every deal starts
 [ ] 4. Read 04_transaction_coordinator/rules.md
-        — understand the Georgia contract milestones
+        — understand the Texas contract milestones
 [ ] 5. Read 05_compliance/rules.md
-        — know which GAR forms are required and when
+        — know which TREC forms are required and when
 [ ] 6. Ask Diana: which specialist folder is your primary role?
 [ ] 7. Read that specialist's examples.md
         — see real output before you produce any
