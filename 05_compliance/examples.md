@@ -2,65 +2,90 @@
 
 ---
 
-## Example 1: Pre-Delivery Review — BLOCKING Flag
+## Example 1: Post-Signature Audit — BLOCKING Flag
 
-**Trigger:** Transaction coordinator routes the Odom listing contract for pre-delivery review before it goes to the title company.
+**Trigger:** Executed GAR purchase and sale agreement returns from the Odom sellers. Transaction coordinator routes to compliance for post-signature audit.
 
-**Document:** TREC One to Four Family Residential Contract (Resale) — Odom property, 412 Millbrook Ln, Pflugerville TX 78660
+**Document:** GAR Form F20 — Purchase and Sale Agreement — Odom property, 847 Avondale Estates Dr, Decatur GA 30030
 
-**Pre-Delivery Review Result:**
+**Post-Signature Audit Result:**
 
-COMPLIANCE REVIEW — PRE-DELIVERY
-Document: TREC One to Four Family Residential Contract (Resale)
-Property: 412 Millbrook Ln, Pflugerville TX 78660
-Review date: [date]
+COMPLIANCE SIGN-OFF CHECKLIST
+Document: GAR Form F20 — Purchase and Sale Agreement
+Property: 847 Avondale Estates Dr, Decatur GA 30030
+Parties: Patricia Odom and James Odom (sellers)
+Return date: [date]
 Reviewer: Compliance Specialist
+
+REQUIRED FIELDS CHECK:
+- [x] Buyer signature lines signed
+- [ ] FAIL — Seller signature line for co-owner (James Odom) is blank (page 8, seller signature block)
+- [x] All date fields filled
+- [x] All initialing blocks initialed — pages 2, 4, 6 confirmed
+
+GEORGIA DISCLOSURES CHECK:
+- [x] GAR Form F510 (Agency Disclosure / BRRETA) — present and signed
+- [x] GAR Form F301 (Seller's Property Disclosure) — present, all sections completed
+- [ ] FAIL — GAR Form F322 (Community Association Disclosure) — referenced in Section 8C of the contract but not attached. HOA for Avondale Estates confirmed in lead profile.
+- [x] Lead-based paint disclosure — not required (property built 1994)
+
+BINDING AGREEMENT DATE CHECK:
+- [x] Binding Agreement Date: [date] — matches last signature date on contract
+- [x] Due Diligence Period: 10 days from Binding Agreement Date — end date calculated correctly
+- [x] Earnest money: $5,000 due within 3 business days — receipt confirmed
 
 FLAGS:
 
-1. BLOCKING — Page 3, Section 6D
-   Issue: MUD disclosure addendum is referenced in Section 6D but is not attached to the document package. Pflugerville properties at this address fall within the Pflugerville MUD boundary. This disclosure is required under Texas Water Code §49.452 before the contract can be executed.
-   Required action: Attach the MUD disclosure addendum before delivery.
+1. BLOCKING — Page 8, Seller Signature Block
+   Issue: James Odom has not signed the Purchase and Sale Agreement. Both names appear on title. Both must sign for the contract to be executed.
+   Required action: Return to sellers for James Odom signature. Do not file.
 
-2. BLOCKING — Page 7, Signature Block
-   Issue: Seller signature line for co-owner (James Odom) is blank. Two names appear on the title search: Patricia Odom and James Odom. Both must sign.
-   Required action: Obtain James Odom signature or confirm he is not on title with documentation.
+2. BLOCKING — Section 8C, Community Association Disclosure
+   Issue: GAR Form F322 is referenced in the contract but not attached. HOA exists per lead profile. Georgia law requires this disclosure and the buyer's 7-day review window must be documented.
+   Required action: Attach GAR Form F322, confirm buyer receipt date, verify closing date allows for 7-day review window.
 
-3. NOTE — Page 1, Effective Date
-   Issue: Effective date field is blank. This will need to be filled in upon execution — confirm this is intentional for a counter-offer scenario.
-   Action: Log for transaction coordinator to complete at signing.
-
-RESULT: BLOCKED — Do not deliver. Resolve items 1 and 2 before routing back through compliance.
+RESULT: FLAGGED — Return to transaction coordinator. Do not file until both blocking items are resolved.
 
 ---
 
 ## Example 2: Post-Signature Audit — Clean Sign-Off
 
-**Trigger:** Buyer's signed purchase contract returns from Webb family. Transaction coordinator routes to compliance for post-signature audit.
+**Trigger:** Executed purchase and sale agreement returns from the Webb buyers. Transaction coordinator routes to compliance for post-signature audit.
 
-**Document:** TREC One to Four Family Residential Contract (Resale) — Webb purchase, 3847 Juniper Trail, Austin TX 78745
+**Document:** GAR Form F20 — Purchase and Sale Agreement — Webb purchase, 2214 Cascade Rd SW, Atlanta GA 30311
 
 **Post-Signature Audit Result:**
 
 COMPLIANCE SIGN-OFF CHECKLIST
-Document: TREC One to Four Family Residential Contract (Resale)
-Property: 3847 Juniper Trail, Austin TX 78745
-Executed by: Marcus Webb and Simone Webb (buyers), David and Carol Nguyen (sellers)
+Document: GAR Form F20 — Purchase and Sale Agreement
+Property: 2214 Cascade Rd SW, Atlanta GA 30311
+Executed by: Marcus Webb and Tanya Webb (buyers), David and Carol Nguyen (sellers)
 Return date: [date]
 Reviewer: Compliance Specialist
 
-COMPLETENESS CHECK:
+REQUIRED FIELDS CHECK:
 - [x] All signature lines signed — buyers and sellers
-- [x] All date fields filled — effective date, option period, closing date
+- [x] All date fields filled
 - [x] All initialing blocks initialed — pages 2, 4, 5, 7 confirmed
 - [x] Page count matches — 9 of 9 pages present
-- [x] Third-party financing addendum attached and signed
-- [x] Lead-based paint disclosure attached and signed (property built 1971)
 
-CONSISTENCY CHECK:
-- [x] Buyer names consistent throughout: Marcus Webb, Simone Webb
-- [x] Property address consistent: 3847 Juniper Trail, Austin TX 78745
-- [x] Purchase price consistent: $387,500 on pages 1, 3, and financing addendum
+GEORGIA DISCLOSURES CHECK:
+- [x] GAR Form F510 (Agency Disclosure / BRRETA) — present, signed by Marcus and Tanya Webb at first contact
+- [x] GAR Form F301 (Seller's Property Disclosure) — present, all sections completed, signed by both sellers
+- [x] GAR Form F316 (Lead-Based Paint Disclosure) — present and signed by all parties (property built 1971)
+- [x] No HOA — GAR Form F322 not required (confirmed in lead profile)
+
+BINDING AGREEMENT DATE CHECK:
+- [x] Binding Agreement Date: [date] — matches last signature date confirmed
+- [x] Due Diligence Period: 10 days — end date [date] — correctly calculated
+- [x] Earnest money: $8,700 — receipt confirmed, deposited within 3 business days
+- [x] Closing date: July 31 — 30 days from Binding Agreement Date — realistic given financing timeline
+- [x] No deadlines fall on Sunday or federal holiday
+
+COMPLETENESS CHECK:
+- [x] GAR Form F54 (Financing Contingency) — attached and signed
+- [x] All addenda referenced in contract attached
+- [x] Purchase price consistent: $437,500 on pages 1, 3, and financing addendum
 
 FLAGS: None
 
@@ -68,28 +93,32 @@ RESULT: CLEARED — Document is compliant. File in transaction record. Notify tr
 
 ---
 
-## Example 3: Post-Signature Audit — Flagged Return
+## Example 3: Post-Signature Audit — Missing BRRETA
 
-**Trigger:** Seller's disclosure notice returns from the Odom sellers after compliance review cleared the contract and delivery was made.
+**Trigger:** Executed buyer brokerage agreement returns from a new buyer client. Transaction coordinator routes to compliance.
+
+**Document:** GAR Form F404 — Buyer Brokerage Agreement
 
 **Post-Signature Audit Result:**
 
 COMPLIANCE SIGN-OFF CHECKLIST
-Document: Seller's Disclosure Notice
-Property: 412 Millbrook Ln, Pflugerville TX 78660
+Document: GAR Form F404 — Buyer Brokerage Agreement
+Parties: [Buyer name(s)]
 Return date: [date]
 Reviewer: Compliance Specialist
 
-COMPLETENESS CHECK:
-- [x] Signature line signed — Patricia Odom
-- [ ] FAIL — Signature line for James Odom is blank (page 6, co-seller signature block)
-- [x] Date field filled
-- [x] All pages present — 6 of 6
+REQUIRED FIELDS CHECK:
+- [x] Buyer signature present
+- [x] Agent signature present
+- [x] All date fields filled — start date, end date, brokerage name
+
+GEORGIA DISCLOSURES CHECK:
+- [ ] FAIL — GAR Form F510 (Agency Disclosure / BRRETA) is not in the file. Under the Brokerage Relationships in Real Estate Transactions Act, agency disclosure must be made at or before first substantive contact. A signed buyer brokerage agreement without a BRRETA disclosure on file is a compliance gap.
 
 FLAGS:
 
-1. BLOCKING — Page 6, Co-Seller Signature Line
-   Issue: James Odom has not signed the Seller's Disclosure Notice. Both title holders must sign. Document cannot be filed as executed.
-   Required action: Return to sellers for James Odom signature. Do not file.
+1. BLOCKING — BRRETA Disclosure Missing
+   Issue: GAR Form F510 is not attached or on file. BRRETA requires agency disclosure before or at first substantive contact. The buyer brokerage agreement is signed but the disclosure is not documented.
+   Required action: Obtain signed GAR Form F510 from buyer. Confirm the date on the form reflects when agency was first disclosed — not backdated.
 
-RESULT: FLAGGED — Return to transaction coordinator. Do not file until resolved.
+RESULT: FLAGGED — Return to agent. BRRETA disclosure must be obtained and filed before this file is complete.
