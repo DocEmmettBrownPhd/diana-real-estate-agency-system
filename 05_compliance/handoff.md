@@ -2,20 +2,9 @@
 
 ## What Compliance Receives
 
-Compliance accepts two types of inbound routes from the orchestrator:
+Compliance accepts one type of inbound route from the orchestrator:
 
-**Type 1 — Pre-Delivery Review**
-```
-COMPLIANCE REQUEST — PRE-DELIVERY
-Document: [document name and type]
-Property: [full address]
-Parties: [buyer names] / [seller names]
-Routed from: [transaction coordinator / communication / other]
-Attached: [list of documents in the package]
-Notes: [any known issues or flags from prior specialists]
-```
-
-**Type 2 — Post-Signature Audit**
+**Post-Signature Audit Request**
 ```
 COMPLIANCE REQUEST — POST-SIGNATURE
 Document: [document name and type]
@@ -24,54 +13,37 @@ Parties: [buyer names] / [seller names]
 Return date: [date document was received back]
 Routed from: [transaction coordinator]
 Attached: [executed document and all addenda]
-Notes: [any known prior flags from pre-delivery review]
+Notes: [any known issues flagged during the deal — liens, multi-party signing requirements, etc.]
 ```
 
 ---
 
 ## What Compliance Produces
 
-**Output 1 — Pre-Delivery Review: BLOCKED**
-```
-COMPLIANCE REVIEW — PRE-DELIVERY
-Document: [document name]
-Property: [address]
-Review date: [date]
-
-FLAGS:
-[number]. [BLOCKING or NOTE] — Page [X], [Section or location]
-   Issue: [exact description of what is missing or wrong]
-   Required action: [what must happen before this clears]
-
-RESULT: BLOCKED — Do not deliver. Resolve flagged items and re-route to compliance.
-```
-
-**Output 2 — Pre-Delivery Review: CLEARED**
-```
-COMPLIANCE REVIEW — PRE-DELIVERY
-Document: [document name]
-Property: [address]
-Review date: [date]
-
-FLAGS: None
-
-RESULT: CLEARED — Document is compliant. Approved for delivery.
-```
-
-**Output 3 — Post-Signature Sign-Off Checklist: CLEARED**
+**Output 1 — Post-Signature Sign-Off Checklist: CLEARED**
 ```
 COMPLIANCE SIGN-OFF CHECKLIST
-Document: [document name]
+Document: [document name and GAR form number]
 Property: [address]
 Executed by: [all signing parties]
 Return date: [date]
 
-COMPLETENESS CHECK:
+REQUIRED FIELDS CHECK:
 - [x] All signature lines signed
-- [x] All date fields filled
+- [x] All date fields filled — including Binding Agreement Date
 - [x] All initialing blocks initialed
 - [x] Page count matches — [X] of [X] pages present
-- [x] All required addenda attached and signed
+
+GEORGIA DISCLOSURES CHECK:
+- [x] GAR Form F510 (Agency Disclosure / BRRETA) — present and signed
+- [x] GAR Form F301 (Seller's Property Disclosure) — present and complete [or N/A]
+- [x] GAR Form F316 (Lead-Based Paint) — present and signed [or N/A — property post-1978]
+- [x] GAR Form F322 (Community Association) — present and signed [or N/A — no HOA]
+
+BINDING AGREEMENT DATE CHECK:
+- [x] Binding Agreement Date: [date] — confirmed
+- [x] Due Diligence Period end date: [date] — correctly calculated
+- [x] Earnest money receipt confirmed
 
 CONSISTENCY CHECK:
 - [x] Party names consistent throughout
@@ -83,19 +55,25 @@ FLAGS: None
 RESULT: CLEARED — Document is compliant. File in transaction record. Notify transaction coordinator.
 ```
 
-**Output 4 — Post-Signature Audit: FLAGGED**
+**Output 2 — Post-Signature Audit: FLAGGED**
 ```
 COMPLIANCE SIGN-OFF CHECKLIST
-Document: [document name]
+Document: [document name and GAR form number]
 Property: [address]
 Return date: [date]
 
-COMPLETENESS CHECK:
+REQUIRED FIELDS CHECK:
+- [x or FAIL] [each item with page number if failed]
+
+GEORGIA DISCLOSURES CHECK:
+- [x or FAIL] [each required form]
+
+BINDING AGREEMENT DATE CHECK:
 - [x or FAIL] [each item]
 
 FLAGS:
-[number]. [BLOCKING] — Page [X], [location]
-   Issue: [exact description]
+[number]. [BLOCKING] — Page [X], [section or location]
+   Issue: [exact description of what is missing or wrong]
    Required action: [what must happen to resolve]
 
 RESULT: FLAGGED — Return to transaction coordinator. Do not file until resolved.
@@ -107,7 +85,5 @@ RESULT: FLAGGED — Return to transaction coordinator. Do not file until resolve
 
 | Result | Next step |
 |--------|-----------|
-| Pre-delivery CLEARED | Orchestrator routes back to transaction coordinator for delivery |
-| Pre-delivery BLOCKED | Orchestrator returns to originating specialist with flags |
-| Post-signature CLEARED | File in transaction record, notify transaction coordinator |
-| Post-signature FLAGGED | Return to transaction coordinator for resolution |
+| CLEARED | File in transaction record, notify transaction coordinator |
+| FLAGGED | Return to transaction coordinator for resolution — do not file |
