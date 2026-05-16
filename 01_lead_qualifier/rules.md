@@ -30,40 +30,41 @@
 
 ---
 
-## Buyer Resources: Down Payment Assistance (Atlanta, GA)
+## Buyer Resources: Down Payment Assistance (Austin, TX)
 
 After completing the buyer profile, include a DPA section matched to the buyer's financial situation. Use the programs below. Match based on income level, loan type, and whether buyer is a first-time homebuyer.
 
-**Georgia Dream Homeownership Program (State)**
-- Provider: Georgia Department of Community Affairs
-- Assistance: Up to $10,000 in down payment and closing cost assistance ($12,500 for eligible professions — educators, healthcare, public safety)
+**My First Texas Home (State)**
+- Provider: Texas Department of Housing and Community Affairs (TDHCA)
+- Assistance: Up to 5% of the loan amount in down payment and closing cost assistance
 - Who qualifies: First-time homebuyers (or those who haven't owned in 3+ years), income and purchase price limits apply
 - Loan type: 30-year fixed FHA, VA, USDA, or conventional
 - Note: Buyer must complete a homebuyer education course
 
-**Atlanta BeltLine Affordable Housing Program**
-- Provider: Atlanta BeltLine Inc.
-- Assistance: Varies — down payment grants for homes within BeltLine corridor zip codes
-- Who qualifies: Low-to-moderate income buyers purchasing within BeltLine Tax Allocation District
-- Note: Limited inventory — check availability at time of intake
+**Texas Mortgage Credit Certificate (MCC)**
+- Provider: TDHCA
+- Assistance: Federal tax credit of up to 40% of annual mortgage interest paid (max $2,000/year)
+- Who qualifies: First-time homebuyers within income and purchase price limits
+- Note: Can be combined with My First Texas Home — stack when possible
 
-**Invest Atlanta — HOME Investment Partnership Program**
-- Provider: Invest Atlanta
-- Assistance: Up to $10,000 forgivable loan for down payment and closing costs
-- Who qualifies: Low-to-moderate income buyers in City of Atlanta limits, first-time buyer required
-- Loan type: FHA or conventional
+**City of Austin Down Payment Assistance Program**
+- Provider: City of Austin Neighborhood Housing and Community Development
+- Assistance: Up to $40,000 in forgivable loans for eligible buyers within Austin city limits
+- Who qualifies: Low-to-moderate income buyers, income at or below 80% of Area Median Income
+- Loan type: Any
+- Note: Highly competitive — limited funding, apply early
 
-**Invest Atlanta — Homestretch Down Payment Assistance**
-- Provider: Invest Atlanta
-- Assistance: Up to $10,000 deferred payment loan (0% interest, repaid at sale/refinance)
-- Who qualifies: Income at or below 80% of Atlanta Area Median Income
-- Loan type: FHA
+**Travis County Housing Finance Corporation**
+- Provider: Travis County HFC
+- Assistance: Down payment assistance paired with below-market rate mortgages
+- Who qualifies: Buyers within Travis County, income limits apply
+- Note: Check availability at time of intake — funding cycles vary
 
 **USDA Rural Development Loan**
 - Provider: USDA
 - Assistance: 100% financing — no down payment required
-- Who qualifies: Buyers purchasing in USDA-eligible areas outside Atlanta city limits (check eligibility by address)
-- Note: Income limits apply; some Metro Atlanta suburbs qualify
+- Who qualifies: Buyers purchasing in USDA-eligible areas outside Austin city limits
+- Note: Income limits apply; some Austin suburbs qualify — check by address
 
 **VA Home Loan**
 - Provider: U.S. Department of Veterans Affairs
@@ -73,37 +74,39 @@ After completing the buyer profile, include a DPA section matched to the buyer's
 
 **FHA Loan (203b)**
 - Provider: FHA-approved lenders
-- Assistance: 3.5% down payment minimum (not a grant, but lowest conventional entry point)
+- Assistance: 3.5% down payment minimum
 - Who qualifies: Credit score 580+; 10% down if score 500–579
-- Note: Pair with Georgia Dream or Invest Atlanta for additional assistance
+- Note: Pair with My First Texas Home or City of Austin DPA for additional assistance
+
+**Rule:** Always list the 2–3 programs that match the buyer's profile. Do not list all programs for every buyer — match to their situation.
 
 ---
 
-## Buyer Resources: Preferred Lenders (Atlanta, GA)
+## Buyer Resources: Preferred Lenders (Austin, TX)
 
 After DPA matching, include lender recommendations based on the buyer's loan type and situation.
 
-**Movement Mortgage — Atlanta**
-- Specialties: FHA, VA, conventional, Georgia Dream approved lender
-- Known for: Fast closings (6-day processing model)
+**Cornerstone Home Lending — Austin**
+- Specialties: FHA, VA, conventional, TDHCA approved lender
+- Known for: Local Austin market expertise, strong TDHCA program knowledge
 
-**Ameris Bank — Atlanta**
-- Specialties: Georgia Dream approved, construction loans, first-time buyer programs
-- Known for: Local decision-making, community reinvestment loans
+**Movement Mortgage — Austin**
+- Specialties: FHA, VA, conventional, fast closing model
+- Known for: 6-day processing model — strong fit for tight timelines
 
-**Equity Prime Mortgage — Atlanta (HQ)**
-- Specialties: FHA, VA, USDA, non-QM, down payment assistance programs
-- Known for: Working with buyers who have credit challenges
+**PrimeLending — Austin**
+- Specialties: FHA, VA, USDA, conventional, jumbo
+- Known for: TDHCA approved, first-time buyer programs
 
 **Veterans United Home Loans**
 - Specialties: VA loans exclusively
 - Note: Route any veteran or active duty buyer here first
 
-**AnnieMac Home Mortgage — Atlanta**
-- Specialties: FHA, conventional, first-time buyer programs
-- Note: Georgia Dream approved lender
+**Amplify Credit Union — Austin**
+- Specialties: Conventional, first-time buyer programs, low-fee options
+- Known for: Local Austin institution, competitive rates for conventional buyers
 
-**Rule:** Always list the 2–3 programs that match the buyer's profile. Do not list all programs for every buyer — match to their situation.
+**Rule:** Always list the 2–3 lenders that match the buyer's loan type and situation. Do not list all lenders for every buyer.
 
 ---
 
