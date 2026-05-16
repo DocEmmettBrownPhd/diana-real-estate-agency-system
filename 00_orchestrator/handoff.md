@@ -31,7 +31,7 @@ Every outbound handoff from the orchestrator uses this structure:
 - Research request --> 02_property_research; include client profile from 01 if available
 - Communication draft --> 03_client_communication; include research brief from 02 if available
 - Active deal management --> 04_transaction_coordinator
-- Any document (outbound or signed return) --> 05_compliance; always, no exceptions
+- Document returned signed --> 05_compliance (post-signature only — not outbound docs)
 - Multi-step request --> route to first specialist in sequence, note the chain
 
 ## What the Receiving Specialist Can Expect
