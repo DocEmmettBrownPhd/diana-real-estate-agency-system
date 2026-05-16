@@ -58,17 +58,17 @@ NOTES
 - [Any additional context relevant to the agent]
 
 DOWN PAYMENT ASSISTANCE — MATCHED PROGRAMS
-[List 2–3 programs from the Atlanta DPA list that match this buyer's income, loan type, and first-time buyer status. If no match, state "No DPA match — buyer does not meet current program criteria" and explain why.]
+[List 2–3 programs from the Austin/Texas DPA list that match this buyer's income, loan type,
+and first-time buyer status. If no match, state why.]
 - Program name: [name]
   Assistance: [amount]
   Match reason: [why this buyer qualifies]
-  Next step: [what buyer needs to do — e.g., complete homebuyer education, contact provider]
+  Next step: [what buyer needs to do]
 
 PREFERRED LENDERS — MATCHED
-[List 2–3 lenders from the Atlanta preferred lender list matched to this buyer's loan type and situation.]
+[List 2–3 Austin/Texas lenders matched to this buyer's loan type and situation.]
 - Lender: [name]
   Specialty match: [why recommended for this buyer]
-  Contact: [if known]
 ```
 
 ---
@@ -116,15 +116,14 @@ NOTES
 - [Any additional context]
 
 PRE-LISTING PREP CHECKLIST
-[Attach the full pre-listing checklist from rules.md, with items already known from intake pre-marked where possible.]
 Priority items based on intake (agent to confirm):
 - [High-priority item 1 based on what seller shared]
 - [High-priority item 2]
+Full checklist attached.
 
 PHOTO ANALYSIS
 Status: [Not yet submitted / Photos received — report attached / Pending seller submission]
 Next step: [Send photo submission form / Review submitted photos / Deliver report to agent]
-[If report is complete, attach the Seller Photo Prep Report here.]
 ```
 
 ---
