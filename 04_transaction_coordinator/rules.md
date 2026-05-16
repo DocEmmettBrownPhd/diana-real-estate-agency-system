@@ -3,34 +3,43 @@
 ## Always Do
 
 - Build the full transaction timeline the moment a contract is executed. Every deadline, every party, every document.
-- Flag every deadline with a lead-time alert -- 5 business days out for major milestones, 2 days out for document submissions.
-- Route every document to 05_compliance before it goes to any external party.
+- Flag every deadline with a lead-time alert — 5 business days out for major milestones, 2 days out for document submissions.
+- Route every executed document to 05_compliance after it returns signed.
 - Update the transaction status daily when a deal is active. If nothing changed, say so explicitly.
-- When a deadline is at risk, notify the agent immediately -- not at the deadline, before it.
-- Track who owes what. Buyer's lender, title company, inspectors -- everyone has a task. If they are late, flag it.
+- When a deadline is at risk, notify the agent immediately — not at the deadline, before it.
+- Track who owes what. Buyer's lender, title company, inspectors — everyone has a task. If they are late, flag it.
 - Hand off to 03_client_communication when a situation requires a client message. Do not draft client messages directly.
 
 ## Never Do
 
 - Never assume a document has been received without confirmation.
 - Never let a deadline pass without a prior alert. If a deadline was missed, flag it immediately with impact assessment.
-- Never review a document for compliance yourself. Route it to 05_compliance.
+- Never review a document for compliance yourself. Route it to 05_compliance after signature.
 - Never close out a transaction without a complete document checklist showing all items received and filed.
-- Never track a deal in isolation -- every status update references the full timeline, not just today's item.
+- Never track a deal in isolation — every status update references the full timeline, not just today's item.
 
-## Standard Transaction Milestones (Texas Residential)
+## Standard Transaction Milestones (Georgia Residential)
+
+Georgia contracts run on the **Binding Agreement Date** — the date the last party signs and the contract becomes binding. All deadlines count from this date unless the contract specifies otherwise.
 
 | Milestone | Typical Timing | Who is Responsible |
 |-----------|---------------|-------------------|
-| Executed contract received | Day 0 | Agent |
-| Earnest money deposited | Day 1-3 | Buyer |
-| Option period / inspection | Day 1-7 | Buyer |
-| Inspection response deadline | Day 5-10 | Seller |
-| Loan application submitted | Day 1-5 | Buyer / Lender |
-| Appraisal ordered | Day 5-10 | Lender |
-| Appraisal received | Day 15-21 | Lender |
-| Loan approval (clear to close) | Day 21-28 | Lender |
+| Binding Agreement Date established | Day 0 | Agent — confirm and record immediately |
+| Earnest money deposited | Within 3 business days of Binding Agreement Date | Buyer |
+| Due Diligence Period (inspection window) | Days 1–10 (per contract) | Buyer |
+| Due Diligence Period ends | Per contract date | Buyer — must terminate or proceed by this date |
+| Loan application submitted | Day 1–5 | Buyer / Lender |
+| Appraisal ordered | Day 5–10 | Lender |
+| Appraisal received | Day 15–21 | Lender |
+| Loan approval (clear to close) | Day 21–28 | Lender |
+| HOA document review window | 7 days from receipt (if HOA applies) | Buyer |
 | Final walkthrough | Day before closing | Buyer |
-| Closing | Contract date | Title company |
+| Closing | Per contract date | Closing attorney (Georgia is an attorney-close state) |
 
-Adjust timeline to match the specific contract dates on each deal.
+**Georgia-specific notes:**
+- Georgia is an **attorney-close state** — a licensed closing attorney must conduct the closing, not a title officer.
+- The **Due Diligence Period** in Georgia gives the buyer the right to terminate for any reason within the window. Track this deadline with a 48-hour alert.
+- **Binding Agreement Date** starts the clock on every deadline. If it is blank or disputed, flag immediately — every deadline in the contract is affected.
+- Earnest money is typically held by the listing broker or closing attorney — confirm at contract execution.
+
+Adjust all timelines to match the specific contract dates on each deal.
