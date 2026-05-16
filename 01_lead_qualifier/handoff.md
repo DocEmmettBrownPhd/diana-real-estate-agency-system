@@ -27,7 +27,7 @@ Type: Buyer
 
 FINANCIAL
 - Budget: $[amount]
-- Pre-qualified: [Yes / No / In process] -- Lender: [name], Expires: [date]
+- Pre-qualified: [Yes / No / In process] — Lender: [name], Expires: [date]
 - Down payment: [amount or %]
 - Financing type: [Conventional / FHA / VA / Cash / Other]
 
@@ -39,7 +39,7 @@ TARGET AREA
 
 TIMELINE
 - Target close date: [month/year or specific date]
-- Urgency level: [Low / Medium / High] -- Reason: [why]
+- Urgency level: [Low / Medium / High] — Reason: [why]
 
 CURRENT LIVING SITUATION
 - Currently: [Renting / Owns / Other]
@@ -47,15 +47,28 @@ CURRENT LIVING SITUATION
 - Moving from: [city/area]
 
 BACKGROUND
-- Eviction history: [None / Yes -- details]
+- Eviction history: [None / Yes — details]
 - Prior ownership: [Yes / No]
-- Active bankruptcy: [None / Yes -- details]
+- Active bankruptcy: [None / Yes — details]
 
 RED FLAGS
 - [None] or [list each flag with !! prefix]
 
 NOTES
 - [Any additional context relevant to the agent]
+
+DOWN PAYMENT ASSISTANCE — MATCHED PROGRAMS
+[List 2–3 programs from the Atlanta DPA list that match this buyer's income, loan type, and first-time buyer status. If no match, state "No DPA match — buyer does not meet current program criteria" and explain why.]
+- Program name: [name]
+  Assistance: [amount]
+  Match reason: [why this buyer qualifies]
+  Next step: [what buyer needs to do — e.g., complete homebuyer education, contact provider]
+
+PREFERRED LENDERS — MATCHED
+[List 2–3 lenders from the Atlanta preferred lender list matched to this buyer's loan type and situation.]
+- Lender: [name]
+  Specialty match: [why recommended for this buyer]
+  Contact: [if known]
 ```
 
 ---
@@ -73,7 +86,7 @@ Type: Seller
 PROPERTY
 - Address: [address]
 - Type: [Single-family / Condo / Multi-family / Land]
-- Condition: [Good / Fair / Unknown -- details]
+- Condition: [Good / Fair / Unknown — details]
 - Occupancy: [Owner-occupied / Tenant-occupied / Vacant]
 
 DECISION-MAKING
@@ -84,15 +97,15 @@ DECISION-MAKING
 PRICING
 - Client target price: $[amount]
 - Lowest acceptable: $[amount]
-- Market context: [Needs comparables / Client has data / Overpriced -- flag]
+- Market context: [Needs comparables / Client has data / Overpriced — flag]
 
 TIMELINE
-- Urgency: [Low / Medium / High] -- Reason: [why]
+- Urgency: [Low / Medium / High] — Reason: [why]
 - Target list date: [date]
 - Target close: [date or timeframe]
 
 PROPERTY ISSUES
-- Outstanding liens: [None / Yes -- type and status]
+- Outstanding liens: [None / Yes — type and status]
 - Known repairs needed: [list or None]
 - Disclosure items: [list or None]
 
@@ -101,12 +114,24 @@ RED FLAGS
 
 NOTES
 - [Any additional context]
+
+PRE-LISTING PREP CHECKLIST
+[Attach the full pre-listing checklist from rules.md, with items already known from intake pre-marked where possible.]
+Priority items based on intake (agent to confirm):
+- [High-priority item 1 based on what seller shared]
+- [High-priority item 2]
+
+PHOTO ANALYSIS
+Status: [Not yet submitted / Photos received — report attached / Pending seller submission]
+Next step: [Send photo submission form / Review submitted photos / Deliver report to agent]
+[If report is complete, attach the Seller Photo Prep Report here.]
 ```
 
 ---
 
 ## Where the Profile Goes
 
-- Buyer profile --> 02_property_research (include full profile)
-- Seller profile --> 02_property_research (comparables) and flag for listing preparation
-- Any profile with a red flag --> notify assigned agent immediately before routing forward
+- Buyer profile → 02_property_research (include full profile)
+- Seller profile → 02_property_research (comparables) and flag for listing preparation
+- Any profile with a red flag → notify assigned agent immediately before routing forward
+- Seller photo report → agent review first, then share with seller
