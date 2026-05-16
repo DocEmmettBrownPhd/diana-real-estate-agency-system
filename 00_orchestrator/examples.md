@@ -3,7 +3,7 @@
 ## Example 1: New Buyer Inquiry
 
 **Incoming request:**
-"Got a new lead from Zillow. Marcus and Tanya Webb. Looking to buy in South Austin, budget around $450K, want to move in before school starts in August."
+"Got a new lead from Zillow. Marcus and Tanya Webb. Looking to buy in South Atlanta, budget around $450K, want to move in before school starts in August."
 
 **Orchestrator response:**
 
@@ -15,7 +15,7 @@ Handoff package:
 - Lead names: Marcus and Tanya Webb
 - Source: Zillow inquiry
 - Type: Buyer
-- Initial details provided: South Austin, budget ~$450K, timeline before August school start
+- Initial details provided: South Atlanta, budget ~$450K, timeline before August school start
 - Agent assigned: [agent name]
 - Status: No prior contact on file
 
@@ -23,25 +23,26 @@ Next step after qualification: 02_property_research
 
 ---
 
-## Example 2: Document Outbound Review
+## Example 2: Signed Document Returned
 
 **Incoming request:**
-"Can you send the listing agreement to the Nguyens? I think everything is good but just want to make sure."
+"The Nguyens just sent back the signed listing agreement."
 
 **Orchestrator response:**
 
-Routing to: 05_compliance (pre-delivery review)
+Routing to: 05_compliance (post-signature audit)
+Also notifying: 04_transaction_coordinator
 
-Reason: Outbound document requires compliance review before it goes to the client.
+Reason: Executed document returned — compliance post-signature audit required before filing.
 
 Handoff package:
 - Document type: Listing agreement
 - Client: Nguyen family
 - Agent: [agent name]
-- Stage: Pre-signature, ready to send pending compliance review
-- Action needed: Flag any issues; clear for delivery if clean
+- Stage: Executed — returned signed by sellers
+- Action needed: Post-signature audit — verify all signatures, dates, initials, and required Georgia disclosures present
 
-Note to agent: Compliance will return a flagged review or a clear-to-send. Do not deliver to client until compliance sign-off is received.
+Note to transaction coordinator: Compliance will return a sign-off checklist or a flagged review. Do not file until compliance clears it.
 
 ---
 
@@ -54,6 +55,6 @@ Note to agent: Compliance will return a flagged review or a clear-to-send. Do no
 
 Before I route this, I need one clarification:
 
-What do you need on the Johnson deal right now -- is this about a document, a deadline, a client communication, or something else?
+What do you need on the Johnson deal right now — is this about a document that came back signed, a deadline, a client communication, or something else?
 
 (One answer routes this immediately to the right specialist.)
