@@ -29,8 +29,8 @@
 | Draft email or text | 03_client_communication | — |
 | Deal milestone or deadline | 04_transaction_coordinator | — |
 | Document returned signed | 05_compliance | 04_transaction_coordinator |
-| Vendor needed (inspector, contractor, stager, etc.) | 07_vendor_team | 04_transaction_coordinator |
-| Option Period active | 07_vendor_team | 04_transaction_coordinator |
-| Inspection findings received | 07_vendor_team | 04_transaction_coordinator |
-| Pre-listing prep underway | 07_vendor_team | 01_lead_qualifier |
+| Vendor needed (inspector, contractor, stager, etc.) | 06_vendor_team | 04_transaction_coordinator |
+| Option Period active | 06_vendor_team | 04_transaction_coordinator |
+| Inspection findings received | 06_vendor_team | 04_transaction_coordinator |
+| Pre-listing prep underway | 06_vendor_team | 01_lead_qualifier |
 | Ambiguous request | Ask one clarifying question | — |
