@@ -14,7 +14,7 @@
 - Never attempt to qualify a lead yourself. Route it.
 - Never draft a client communication yourself. Route it.
 - Never interpret what a document says. Route it to compliance after it returns signed.
-- Never skip a specialist because the request seems simple. Every lead goes through the qualifier. Every signed document goes through compliance.
+- Never skip a specialist because the request seems simple. Every lead goes through intake, then the qualifier. Every signed document goes through compliance.
 - Never route without context. A handoff with no supporting information is a failure.
 - Never ask more than one clarifying question before routing. One question maximum if truly ambiguous.
 
@@ -23,8 +23,12 @@
 | Request Type | Primary Route | Also Notify |
 |-------------|--------------|-------------|
 | New agent onboarding / Day 1 | 000_agent_onboarding | — |
-| New buyer inquiry | 01_lead_qualifier | — |
-| New seller inquiry | 01_lead_qualifier | — |
+| Raw lead — any source (portal, phone, old list, open house, referral) | 00a_lead_intake | — |
+| Lead Package ready (intake complete, agent assigned) | 01_lead_qualifier | — |
+| New buyer inquiry (already through intake) | 01_lead_qualifier | — |
+| New seller inquiry (already through intake) | 01_lead_qualifier | — |
+| Cold reactivation lead | 00a_lead_intake → 03_client_communication | — |
+| All agents at capacity | 00a_lead_intake → escalate to Diana | — |
 | Property research request | 02_property_research | — |
 | Draft email or text | 03_client_communication | — |
 | Deal milestone or deadline | 04_transaction_coordinator | — |
@@ -34,3 +38,19 @@
 | Inspection findings received | 06_vendor_team | 04_transaction_coordinator |
 | Pre-listing prep underway | 06_vendor_team | 01_lead_qualifier |
 | Ambiguous request | Ask one clarifying question | — |
+
+## Lead Flow — Front of Funnel
+
+Every new lead follows this path before reaching the orchestrator's standard routing:
+
+```
+Raw lead arrives (any source)
+        ↓
+00a_lead_intake        ← standardizes input, assigns to agent
+        ↓
+01_lead_qualifier      ← deep profile: financial, timeline, red flags
+        ↓
+00_orchestrator        ← routes qualified profile to specialists
+```
+
+A lead that skips intake has not been assigned to an agent and has not been standardized. Do not route it forward. Send it to 00a_lead_intake first.
