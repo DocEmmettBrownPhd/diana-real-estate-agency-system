@@ -1,940 +1,1238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Real Estate AI Multi-Agent Flow</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real Estate AI System — Agent Guide</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *{box-sizing:border-box;margin:0;padding:0}
 
-    :root {
-      --navy: #0f2744;
-      --gold: #c9a84c;
-      --gold-light: #f0d68a;
-      --cream: #faf8f3;
-      --white: #ffffff;
-      --gray: #6b7280;
-      --light-gray: #f3f4f6;
-      --green: #16a34a;
-      --red: #dc2626;
-      --blue: #1d4ed8;
-      --radius: 12px;
+    :root{
+      --navy:#0a1f3c;
+      --gold:#d4a017;
+      --gold-light:#f5d86e;
+      --white:#ffffff;
+      --off:#f7f8fa;
+      --dark:#111827;
+      --gray:#6b7280;
+      --light:#e5e7eb;
+      --green:#15803d;
+      --green-bg:#dcfce7;
+      --red:#b91c1c;
+      --red-bg:#fee2e2;
+      --orange:#c2410c;
+      --orange-bg:#ffedd5;
+      --blue:#1d4ed8;
+      --blue-bg:#dbeafe;
+      --r:14px;
     }
 
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--cream);
-      color: var(--navy);
-      line-height: 1.6;
+    body{
+      font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+      background:var(--off);
+      color:var(--dark);
+      line-height:1.65;
+      font-size:16px;
     }
 
     /* ── HERO ── */
-    .hero {
-      position: relative;
-      height: 520px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
+    .hero{
+      position:relative;
+      min-height:560px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
     }
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+    .hero-img{
+      position:absolute;inset:0;
+      width:100%;height:100%;
+      object-fit:cover;object-position:center 60%;
     }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(15,39,68,0.75) 0%, rgba(15,39,68,0.55) 100%);
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(160deg,rgba(10,31,60,0.92) 0%,rgba(10,31,60,0.7) 100%);
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      padding: 0 24px;
+    .hero-inner{
+      position:relative;z-index:2;
+      max-width:720px;padding:48px 24px;
     }
-    .hero-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 999px;
-      margin-bottom: 20px;
+    .hero-pill{
+      display:inline-block;
+      background:var(--gold);color:var(--navy);
+      font-size:0.72rem;font-weight:800;letter-spacing:0.12em;
+      text-transform:uppercase;padding:6px 18px;border-radius:999px;
+      margin-bottom:24px;
     }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 16px;
+    .hero h1{
+      font-size:clamp(2.2rem,6vw,3.8rem);
+      font-weight:900;color:var(--white);
+      line-height:1.08;margin-bottom:20px;
+      letter-spacing:-0.02em;
     }
-    .hero p {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.88);
-      max-width: 540px;
-      margin: 0 auto 28px;
+    .hero h1 span{color:var(--gold);}
+    .hero p{
+      font-size:clamp(1rem,2.5vw,1.2rem);
+      color:rgba(255,255,255,0.85);
+      max-width:520px;margin:0 auto 32px;
     }
-    .hero-cta {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 32px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background 0.2s;
+    .btn-primary{
+      display:inline-block;
+      background:var(--gold);color:var(--navy);
+      font-weight:800;font-size:1rem;
+      padding:16px 36px;border-radius:999px;
+      text-decoration:none;transition:background 0.2s,transform 0.15s;
     }
-    .hero-cta:hover { background: var(--gold-light); }
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
 
     /* ── NAV ── */
-    nav {
-      background: var(--navy);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      gap: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
+    nav{
+      background:var(--navy);
+      position:sticky;top:0;z-index:200;
+      display:flex;overflow-x:auto;scrollbar-width:none;
+      border-bottom:2px solid rgba(212,160,23,0.3);
     }
-    nav::-webkit-scrollbar { display: none; }
-    nav a {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 14px 20px;
-      white-space: nowrap;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s;
+    nav::-webkit-scrollbar{display:none;}
+    nav a{
+      color:rgba(255,255,255,0.7);text-decoration:none;
+      font-size:0.82rem;font-weight:700;
+      padding:15px 18px;white-space:nowrap;
+      border-bottom:3px solid transparent;
+      transition:all 0.2s;
     }
-    nav a:hover {
-      color: var(--gold);
-      border-bottom-color: var(--gold);
+    nav a:hover{color:var(--gold);border-bottom-color:var(--gold);}
+
+    /* ── LAYOUT ── */
+    .section{max-width:1100px;margin:0 auto;padding:80px 24px;}
+    .section-sm{max-width:1100px;margin:0 auto;padding:48px 24px;}
+
+    .eyebrow{
+      font-size:0.72rem;font-weight:800;
+      letter-spacing:0.14em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:10px;
+    }
+    h2{
+      font-size:clamp(1.8rem,4vw,2.6rem);
+      font-weight:900;color:var(--navy);
+      line-height:1.1;margin-bottom:14px;letter-spacing:-0.02em;
+    }
+    .lead{
+      font-size:1.1rem;color:var(--gray);
+      max-width:640px;margin-bottom:52px;
+    }
+    hr.divider{border:none;border-top:2px solid var(--light);margin:0;}
+
+    /* ── WHAT IS CLAUDE ── */
+    .claude-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+    @media(max-width:640px){.claude-grid{grid-template-columns:1fr;}}
+    .claude-card{
+      background:var(--white);
+      border-radius:var(--r);padding:32px;
+      border:2px solid var(--light);
+    }
+    .claude-card.highlight{
+      background:var(--navy);border-color:var(--navy);
+    }
+    .claude-card.highlight h3{color:var(--gold);}
+    .claude-card.highlight p{color:rgba(255,255,255,0.8);}
+    .claude-card h3{font-size:1.1rem;font-weight:800;margin-bottom:10px;}
+    .claude-card p{font-size:0.95rem;color:var(--gray);}
+
+    /* ── SYSTEM MAP ── */
+    .map-wrap{
+      background:var(--navy);
+      border-radius:var(--r);
+      padding:48px 32px 40px;
+      overflow-x:auto;
+    }
+    .map-title{
+      text-align:center;color:rgba(255,255,255,0.5);
+      font-size:0.72rem;font-weight:700;letter-spacing:0.12em;
+      text-transform:uppercase;margin-bottom:36px;
+    }
+    .map-row{
+      display:flex;align-items:flex-start;
+      justify-content:center;gap:0;
+      min-width:700px;
+    }
+    .map-node{
+      display:flex;flex-direction:column;align-items:center;
+      min-width:120px;flex-shrink:0;
+    }
+    .map-icon{
+      width:72px;height:72px;border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.8rem;margin-bottom:12px;
+      border:2px solid rgba(212,160,23,0.3);
+      background:rgba(255,255,255,0.06);
+    }
+    .map-node.start .map-icon{
+      background:var(--gold);border-color:var(--gold);font-size:2rem;
+    }
+    .map-num{
+      font-size:0.65rem;font-weight:800;letter-spacing:0.1em;
+      color:var(--gold);margin-bottom:4px;
+    }
+    .map-name{
+      font-size:0.82rem;font-weight:800;color:var(--white);
+      text-align:center;line-height:1.2;
+    }
+    .map-when{
+      font-size:0.68rem;color:rgba(255,255,255,0.45);
+      text-align:center;margin-top:5px;line-height:1.3;
+    }
+    .map-arrow{
+      align-self:center;
+      color:var(--gold);font-size:1.6rem;
+      padding:0 8px;flex-shrink:0;
+      margin-bottom:44px;
     }
 
-    /* ── SECTIONS ── */
-    section {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 72px 24px;
+    /* ── STEP BY STEP ── */
+    .steps-wrap{display:flex;flex-direction:column;gap:0;}
+    .step-row{
+      display:grid;
+      grid-template-columns:72px 1fr;
+      gap:0 24px;
+      padding:32px 0;
+      border-bottom:2px solid var(--light);
+      align-items:start;
     }
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 8px;
+    .step-row:last-child{border-bottom:none;}
+    .step-num-big{
+      width:64px;height:64px;border-radius:50%;
+      background:var(--navy);color:var(--gold);
+      font-size:1.6rem;font-weight:900;
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;
     }
-    h2 {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 12px;
+    .step-body h3{
+      font-size:1.2rem;font-weight:800;
+      margin-bottom:8px;color:var(--navy);
     }
-    .section-sub {
-      font-size: 1.05rem;
-      color: var(--gray);
-      max-width: 600px;
-      margin-bottom: 48px;
+    .step-body p{font-size:0.95rem;color:var(--gray);margin-bottom:14px;}
+
+    /* mock browser / phone */
+    .mock-browser{
+      background:var(--white);
+      border:2px solid var(--light);
+      border-radius:12px;overflow:hidden;
+      max-width:560px;
+    }
+    .mock-bar{
+      background:#f1f3f5;
+      padding:10px 16px;
+      display:flex;align-items:center;gap:8px;
+      border-bottom:1px solid var(--light);
+    }
+    .mock-dot{width:10px;height:10px;border-radius:50%;}
+    .mock-dot.r{background:#fc6058;}
+    .mock-dot.y{background:#fec02f;}
+    .mock-dot.g{background:#2bcc71;}
+    .mock-url{
+      flex:1;background:var(--white);
+      border:1px solid var(--light);
+      border-radius:6px;padding:4px 12px;
+      font-size:0.75rem;color:var(--gray);
+      font-family:monospace;
+    }
+    .mock-body{padding:20px;}
+    .mock-claude-logo{
+      font-size:0.8rem;font-weight:800;color:var(--navy);
+      margin-bottom:16px;display:flex;align-items:center;gap:8px;
+    }
+    .mock-claude-logo span{
+      background:var(--navy);color:var(--white);
+      width:28px;height:28px;border-radius:8px;
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:0.85rem;
+    }
+    .mock-msg{
+      background:var(--off);
+      border:1px solid var(--light);
+      border-radius:10px;
+      padding:14px 16px;
+      font-size:0.88rem;color:var(--dark);
+      margin-bottom:12px;line-height:1.6;
+    }
+    .mock-msg strong{color:var(--navy);}
+    .mock-input{
+      display:flex;gap:8px;align-items:center;
+      border:2px solid var(--navy);
+      border-radius:10px;padding:10px 14px;
+      margin-top:8px;
+    }
+    .mock-input-text{flex:1;font-size:0.85rem;color:var(--gray);}
+    .mock-send{
+      background:var(--navy);color:var(--white);
+      border:none;border-radius:8px;
+      padding:6px 14px;font-size:0.8rem;font-weight:700;
+      cursor:pointer;
+    }
+    .msg-template{
+      background:var(--navy);
+      border-radius:12px;padding:20px 24px;
+      max-width:560px;
+    }
+    .msg-template .label{
+      font-size:0.68rem;font-weight:800;letter-spacing:0.1em;
+      text-transform:uppercase;color:var(--gold);
+      margin-bottom:10px;
+    }
+    .msg-template p{
+      color:rgba(255,255,255,0.85);
+      font-size:0.9rem;line-height:1.7;
+    }
+    .msg-template .fill{
+      color:var(--gold);font-style:italic;
     }
 
-    /* ── SPECIALISTS GRID ── */
-    .specialists-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    /* ── SPECIALIST CARDS ── */
+    .spec-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
     }
-    .spec-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      border: 1px solid #e5e7eb;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .spec-card{
+      background:var(--white);
+      border-radius:var(--r);
+      border:2px solid var(--light);
+      overflow:hidden;
+      transition:transform 0.2s,box-shadow 0.2s;
     }
-    .spec-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(15,39,68,0.12);
+    .spec-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 40px rgba(10,31,60,0.1);
     }
-    .spec-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: var(--gold);
+    .spec-head{
+      background:var(--navy);
+      padding:20px 24px 16px;
+      display:flex;align-items:center;gap:14px;
     }
-    .spec-number {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 6px;
+    .spec-emoji{
+      font-size:1.8rem;
+      width:52px;height:52px;
+      background:rgba(255,255,255,0.1);
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;
     }
-    .spec-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .spec-head-text .spec-num{
+      font-size:0.65rem;font-weight:800;letter-spacing:0.1em;
+      color:var(--gold);margin-bottom:2px;
     }
-    .spec-card p {
-      font-size: 0.9rem;
-      color: var(--gray);
-      margin-bottom: 14px;
+    .spec-head-text h3{
+      font-size:1rem;font-weight:800;color:var(--white);
     }
-    .spec-trigger {
-      font-size: 0.8rem;
-      background: var(--light-gray);
-      color: var(--navy);
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-weight: 600;
+    .spec-body{padding:20px 24px;}
+    .spec-body p{font-size:0.88rem;color:var(--gray);margin-bottom:14px;}
+    .spec-when{
+      font-size:0.8rem;font-weight:700;
+      background:var(--off);
+      border:1px solid var(--light);
+      border-radius:8px;padding:8px 12px;
+      color:var(--navy);
     }
-    .spec-trigger span {
-      color: var(--gold);
-      margin-right: 4px;
+    .spec-when span{color:var(--gold);}
+
+    /* ── DO THIS / NOT THIS ── */
+    .dos-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    @media(max-width:640px){.dos-grid{grid-template-columns:1fr;}}
+    .dos-col h3{
+      font-size:0.85rem;font-weight:800;letter-spacing:0.06em;
+      text-transform:uppercase;padding:12px 20px;
+      border-radius:10px 10px 0 0;
+    }
+    .dos-col.wrong h3{background:var(--red-bg);color:var(--red);}
+    .dos-col.right h3{background:var(--green-bg);color:var(--green);}
+    .dos-items{
+      border:2px solid var(--light);
+      border-top:none;border-radius:0 0 10px 10px;
+      overflow:hidden;
+    }
+    .dos-item{
+      display:flex;gap:14px;align-items:flex-start;
+      padding:16px 20px;border-bottom:1px solid var(--light);
+      font-size:0.88rem;
+    }
+    .dos-item:last-child{border-bottom:none;}
+    .dos-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
+    .dos-item p{color:var(--dark);}
+    .dos-item .sub{font-size:0.78rem;color:var(--gray);margin-top:3px;}
+
+    /* ── JOURNEY ── */
+    .journey-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+    @media(max-width:700px){.journey-grid{grid-template-columns:1fr;}}
+    .journey-title{
+      font-size:0.9rem;font-weight:800;
+      margin-bottom:28px;
+      display:flex;align-items:center;gap:10px;
+    }
+    .tl{position:relative;padding-left:44px;}
+    .tl::before{
+      content:'';position:absolute;
+      left:16px;top:8px;bottom:8px;width:3px;
+      background:linear-gradient(to bottom,var(--gold),var(--navy));
+      border-radius:999px;
+    }
+    .tl-item{position:relative;margin-bottom:32px;}
+    .tl-dot{
+      position:absolute;left:-36px;top:4px;
+      width:22px;height:22px;border-radius:50%;
+      background:var(--navy);border:3px solid var(--gold);z-index:1;
+    }
+    .tl-item.final .tl-dot{background:var(--green);border-color:var(--green);}
+    .tl-day{
+      font-size:0.68rem;font-weight:800;letter-spacing:0.08em;
+      text-transform:uppercase;color:var(--gold);margin-bottom:3px;
+    }
+    .tl-item h4{font-size:0.95rem;font-weight:800;margin-bottom:4px;}
+    .tl-item p{font-size:0.82rem;color:var(--gray);}
+    .tl-badge{
+      display:inline-block;margin-top:7px;
+      font-size:0.7rem;font-weight:800;
+      padding:3px 10px;border-radius:999px;
+      background:var(--navy);color:var(--gold);
     }
 
-    /* ── JOURNEY TIMELINE ── */
-    .timeline {
-      position: relative;
-      padding-left: 40px;
+    /* ── WHO DOES WHAT ── */
+    .who-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:20px;
     }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 14px;
-      top: 8px;
-      bottom: 8px;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--gold), var(--navy));
-      border-radius: 999px;
+    @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
+    .who-col{
+      background:var(--white);border-radius:var(--r);
+      border:2px solid var(--light);overflow:hidden;
     }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 36px;
+    .who-head{
+      padding:18px 24px;font-size:1rem;font-weight:800;
+      display:flex;align-items:center;gap:10px;
     }
-    .timeline-dot {
-      position: absolute;
-      left: -33px;
-      top: 4px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--navy);
-      border: 3px solid var(--gold);
-      z-index: 1;
+    .who-head.ai{background:var(--navy);color:var(--gold);}
+    .who-head.you{background:var(--gold);color:var(--navy);}
+    .who-list{list-style:none;}
+    .who-list li{
+      display:flex;align-items:flex-start;gap:12px;
+      padding:13px 24px;border-bottom:1px solid var(--light);
+      font-size:0.88rem;
     }
-    .timeline-item.done .timeline-dot { background: var(--green); border-color: var(--green); }
-    .timeline-item.warning .timeline-dot { background: var(--gold); }
-    .timeline-day {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-    .timeline-item h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .timeline-item p {
-      font-size: 0.88rem;
-      color: var(--gray);
-    }
-    .timeline-who {
-      display: inline-block;
-      margin-top: 8px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: var(--navy);
-      color: var(--gold);
-    }
+    .who-list li:last-child{border-bottom:none;}
+    .who-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
 
-    /* ── TWO-COLUMN RESPONSIBILITY ── */
-    .resp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+    /* ── ESCALATION ── */
+    .esc-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:16px;
+      margin-bottom:32px;
     }
-    @media (max-width: 640px) { .resp-grid { grid-template-columns: 1fr; } }
-    .resp-col {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      border: 1px solid #e5e7eb;
+    .esc-card{
+      background:var(--white);border-radius:var(--r);
+      border:2px solid var(--light);padding:24px;
     }
-    .resp-col h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .esc-tag{
+      font-size:0.68rem;font-weight:800;letter-spacing:0.1em;
+      text-transform:uppercase;margin-bottom:10px;display:block;
     }
-    .badge-you {
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.7rem;
-      padding: 3px 10px;
-      border-radius: 999px;
+    .esc-tag.stop{color:var(--red);}
+    .esc-tag.call{color:var(--blue);}
+    .esc-tag.check{color:var(--orange);}
+    .esc-card h3{font-size:0.95rem;font-weight:800;margin-bottom:8px;}
+    .esc-card p{font-size:0.84rem;color:var(--gray);margin-bottom:14px;}
+    .esc-action{
+      font-size:0.8rem;font-weight:800;
+      padding:8px 16px;border-radius:8px;display:inline-block;
     }
-    .badge-ai {
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.7rem;
-      padding: 3px 10px;
-      border-radius: 999px;
-    }
-    .resp-list {
-      list-style: none;
-    }
-    .resp-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--light-gray);
-      font-size: 0.9rem;
-    }
-    .resp-list li:last-child { border-bottom: none; }
-    .resp-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .esc-action.stop{background:var(--red-bg);color:var(--red);}
+    .esc-action.call{background:var(--blue-bg);color:var(--blue);}
+    .esc-action.check{background:var(--orange-bg);color:var(--orange);}
 
-    /* ── FLOW DIAGRAM ── */
-    .flow-wrap {
-      background: var(--navy);
-      border-radius: var(--radius);
-      padding: 40px 32px;
-      overflow-x: auto;
+    /* ── CALLOUT BOX ── */
+    .callout{
+      background:var(--navy);border-radius:var(--r);
+      padding:36px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:28px;
     }
-    .flow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: nowrap;
-      min-width: 640px;
+    .callout-item h4{
+      color:var(--gold);font-size:0.9rem;font-weight:800;
+      margin-bottom:8px;
     }
-    .flow-node {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(201,168,76,0.4);
-      border-radius: 10px;
-      padding: 16px 18px;
-      text-align: center;
-      min-width: 110px;
-      flex-shrink: 0;
-    }
-    .flow-node .fn-num {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-    .flow-node .fn-name {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.2;
-    }
-    .flow-arrow {
-      color: var(--gold);
-      font-size: 1.4rem;
-      padding: 0 6px;
-      flex-shrink: 0;
-    }
-    .flow-node.highlight {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-    .flow-node.highlight .fn-num { color: var(--navy); }
-    .flow-node.highlight .fn-name { color: var(--navy); }
-
-    /* ── SCENARIO CARDS ── */
-    .scenario-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .scenario-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid #e5e7eb;
-    }
-    .scenario-card .sc-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .sc-label.blocked { color: var(--red); }
-    .sc-label.caution { color: #d97706; }
-    .sc-label.human { color: var(--blue); }
-    .scenario-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .scenario-card p {
-      font-size: 0.875rem;
-      color: var(--gray);
-      margin-bottom: 12px;
-    }
-    .scenario-card .sc-action {
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 8px 14px;
-      border-radius: 8px;
-      display: inline-block;
-    }
-    .sc-action.blocked { background: #fee2e2; color: var(--red); }
-    .sc-action.caution { background: #fef3c7; color: #92400e; }
-    .sc-action.human { background: #dbeafe; color: var(--blue); }
-
-    /* ── HOW TO START STEPS ── */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .step-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px 20px;
-      text-align: center;
-      border: 1px solid #e5e7eb;
-      position: relative;
-    }
-    .step-num {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--gold);
-      font-size: 1.2rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .step-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .step-card p {
-      font-size: 0.85rem;
-      color: var(--gray);
-    }
-    .step-cmd {
-      margin-top: 12px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.75rem;
-      background: var(--light-gray);
-      color: var(--navy);
-      padding: 8px 10px;
-      border-radius: 6px;
-      text-align: left;
-    }
-
-    /* ── PHOTO SECTION ── */
-    .photo-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    @media (max-width: 640px) { .photo-strip { grid-template-columns: 1fr; } }
-    .photo-strip img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: var(--radius);
-    }
-
-    /* ── RULES CALLOUT ── */
-    .rules-box {
-      background: var(--navy);
-      border-radius: var(--radius);
-      padding: 32px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-    .rule-item h4 {
-      color: var(--gold);
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .rule-item p {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.85rem;
-    }
+    .callout-item p{color:rgba(255,255,255,0.75);font-size:0.85rem;}
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 32px 24px;
-      font-size: 0.85rem;
+    footer{
+      background:var(--navy);color:rgba(255,255,255,0.55);
+      text-align:center;padding:36px 24px;font-size:0.85rem;
     }
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-    }
+    footer a{color:var(--gold);text-decoration:none;}
+    footer p+p{margin-top:8px;}
 
-    /* ── DIVIDER ── */
-    .divider {
-      border: none;
-      border-top: 1px solid #e5e7eb;
-      margin: 0;
+    /* ── UTILS ── */
+    .mt-sm{margin-top:20px;}
+    .mt-md{margin-top:36px;}
+    .text-center{text-align:center;}
+    @media(max-width:480px){
+      .step-row{grid-template-columns:52px 1fr;gap:0 16px;}
+      .step-num-big{width:48px;height:48px;font-size:1.3rem;}
     }
-
-    /* ── UTIL ── */
-    .text-center { text-align: center; }
-    .mt-8 { margin-top: 8px; }
-    .mt-16 { margin-top: 16px; }
   </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════
+<!-- ══════════════════════════════════
      HERO
-════════════════════════════════════════ -->
+══════════════════════════════════ -->
 <div class="hero">
-  <img
-    class="hero-img"
+  <img class="hero-img"
     src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80&auto=format&fit=crop"
-    alt="Modern real estate home exterior"
-    loading="eager"
-  />
+    alt="Modern home exterior"
+    loading="eager"/>
   <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-badge">Agent Onboarding</span>
-    <h1>Real Estate AI<br>Multi-Agent Flow</h1>
-    <p>Six AI specialists. One seamless deal. From first lead to closing table — here is exactly how it works.</p>
-    <a href="#how-to-start" class="hero-cta">Get Started →</a>
+  <div class="hero-inner">
+    <div class="hero-pill">Agent Onboarding Guide</div>
+    <h1>Your <span>AI Team</span><br>Explained Simply</h1>
+    <p>Six AI specialists. One deal. No experience required — this page will show you exactly what to do from Day 1.</p>
+    <a href="#what-is-claude" class="btn-primary">Start Here →</a>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     STICKY NAV
-════════════════════════════════════════ -->
+<!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
 <nav>
-  <a href="#how-to-start">How to Start</a>
+  <a href="#what-is-claude">What is Claude?</a>
+  <a href="#system-map">System Map</a>
+  <a href="#first-message">First Message</a>
   <a href="#specialists">The Specialists</a>
+  <a href="#do-this">Do This / Not This</a>
   <a href="#deal-journey">Deal Journey</a>
-  <a href="#responsibilities">Who Does What</a>
-  <a href="#when-stuck">When You're Stuck</a>
+  <a href="#who-does-what">Who Does What</a>
+  <a href="#when-stuck">When Stuck</a>
 </nav>
 
-<!-- ════════════════════════════════════════
-     HOW TO START
-════════════════════════════════════════ -->
-<section id="how-to-start">
-  <div class="section-label">Step by Step</div>
-  <h2>How to Use This System</h2>
-  <p class="section-sub">Four steps. Every deal, every time. The system does the heavy lifting — you make the calls.</p>
+<!-- ══════════════════════════════════
+     WHAT IS CLAUDE
+══════════════════════════════════ -->
+<section id="what-is-claude" class="section">
+  <div class="eyebrow">Before Anything Else</div>
+  <h2>What is Claude?</h2>
+  <p class="lead">If you have used ChatGPT before, Claude is the same idea — but trained differently. Think of it as a very smart assistant that reads and responds to whatever you type.</p>
 
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <h3>Open Claude</h3>
-      <p>Go to claude.ai on any device. No special setup required.</p>
+  <div class="claude-grid">
+    <div class="claude-card highlight">
+      <h3>Claude is like a new team member</h3>
+      <p>You type instructions to it. It reads them and produces work — profiles, research, emails, compliance checklists. It does not make phone calls, go to showings, or sign anything. You do all of that.</p>
     </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <h3>Start with the Orchestrator</h3>
-      <p>Always start here. It routes you to the right specialist for your situation.</p>
-      <div class="step-cmd">You are the Orchestrator for a real estate AI system. Read 00_orchestrator/identity.md. New client: [name + situation]</div>
+    <div class="claude-card">
+      <h3>You access it through your browser</h3>
+      <p>Go to <strong>claude.ai</strong> on your phone or computer. Sign up with your email. It is free to start. No app to install. Just a website — like Gmail or Google.</p>
     </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <h3>Follow the Handoff</h3>
-      <p>Each specialist gives you a structured handoff. Paste it into the next specialist to continue the deal.</p>
+    <div class="claude-card">
+      <h3>You type. It responds.</h3>
+      <p>Every conversation starts with you typing a message. The AI reads it and types back. You keep going back and forth just like texting — except the other person is an AI specialist that knows real estate.</p>
     </div>
-    <div class="step-card">
-      <div class="step-num">4</div>
-      <h3>You Approve. You Send.</h3>
-      <p>The AI drafts. You review. You make the final call before anything goes to the client or title.</p>
+    <div class="claude-card">
+      <h3>This system has 6 specialists built in</h3>
+      <p>The folders in this repo are the AI's instructions. When you tell Claude "you are the Lead Qualifier," it reads those instructions and plays that role. You switch roles by telling it which specialist it is.</p>
     </div>
   </div>
 
-  <div class="rules-box mt-16">
-    <div class="rule-item">
-      <h4>⚡ Golden Rule</h4>
-      <p>Never send an AI draft to a client without reading it first. You are the agent. You are responsible.</p>
+  <div class="callout mt-md">
+    <div class="callout-item">
+      <h4>🌐 Where to go</h4>
+      <p>claude.ai — works on any phone or computer browser. Bookmark it now.</p>
     </div>
-    <div class="rule-item">
-      <h4>🔒 Compliance Rule</h4>
-      <p>Only run the Compliance specialist after a document comes back signed. Never before.</p>
+    <div class="callout-item">
+      <h4>📧 How to sign up</h4>
+      <p>Click "Sign up" and use your work email. Takes 2 minutes. Free account is enough to start.</p>
     </div>
-    <div class="rule-item">
-      <h4>🔄 Fresh Start Rule</h4>
-      <p>Start a new Claude session for each new client. Never paste Client A's profile into Client B's thread.</p>
+    <div class="callout-item">
+      <h4>💬 How it works</h4>
+      <p>Type your message. Hit enter or click send. Claude types back. That is the whole interface.</p>
     </div>
-    <div class="rule-item">
-      <h4>📞 Escalation Rule</h4>
-      <p>If a client is upset, the deal is falling apart, or a legal question comes up — call Diana. Do not use AI.</p>
+    <div class="callout-item">
+      <h4>🔄 New client = new chat</h4>
+      <p>Start a fresh conversation for every new client. Click "New conversation" in the sidebar.</p>
     </div>
   </div>
 </section>
 
-<hr class="divider" />
+<hr class="divider"/>
 
-<!-- ════════════════════════════════════════
+<!-- ══════════════════════════════════
+     SYSTEM MAP
+══════════════════════════════════ -->
+<section id="system-map" class="section">
+  <div class="eyebrow">The Big Picture</div>
+  <h2>Your 6-Specialist System</h2>
+  <p class="lead">Every deal moves through these specialists in order. You do not need all six on every deal — but every deal starts with the Orchestrator and ends with the Transaction Coordinator.</p>
+
+  <div class="map-wrap">
+    <div class="map-title">Deal Flow — Left to Right</div>
+    <div class="map-row">
+
+      <div class="map-node start">
+        <div class="map-icon">🎯</div>
+        <div class="map-num">START HERE</div>
+        <div class="map-name">Orchestrator</div>
+        <div class="map-when">Every request,<br>every time</div>
+      </div>
+
+      <div class="map-arrow">→</div>
+
+      <div class="map-node">
+        <div class="map-icon">👤</div>
+        <div class="map-num">01</div>
+        <div class="map-name">Lead Qualifier</div>
+        <div class="map-when">New buyer<br>or seller</div>
+      </div>
+
+      <div class="map-arrow">→</div>
+
+      <div class="map-node">
+        <div class="map-icon">🏘️</div>
+        <div class="map-num">02</div>
+        <div class="map-name">Property Research</div>
+        <div class="map-when">Ready<br>to search</div>
+      </div>
+
+      <div class="map-arrow">→</div>
+
+      <div class="map-node">
+        <div class="map-icon">✉️</div>
+        <div class="map-num">03</div>
+        <div class="map-name">Client Comms</div>
+        <div class="map-when">Client needs<br>an update</div>
+      </div>
+
+      <div class="map-arrow">→</div>
+
+      <div class="map-node">
+        <div class="map-icon">📅</div>
+        <div class="map-num">04</div>
+        <div class="map-name">Transaction Coord</div>
+        <div class="map-when">Contract<br>signed</div>
+      </div>
+
+      <div class="map-arrow">→</div>
+
+      <div class="map-node">
+        <div class="map-icon">✅</div>
+        <div class="map-num">05</div>
+        <div class="map-name">Compliance</div>
+        <div class="map-when">Doc comes<br>back signed</div>
+      </div>
+
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:0.85rem;color:var(--gray);margin-top:16px;">Not sure where to go? Always start with the <strong>Orchestrator</strong>. It will tell you which specialist to use.</p>
+</section>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════
+     FIRST MESSAGE
+══════════════════════════════════ -->
+<section id="first-message" class="section">
+  <div class="eyebrow">Step by Step</div>
+  <h2>How to Send Your First Message</h2>
+  <p class="lead">Never used Claude before? Follow these steps exactly. First time takes 5 minutes. After that it is as fast as sending a text.</p>
+
+  <div class="steps-wrap">
+
+    <!-- Step 1 -->
+    <div class="step-row">
+      <div class="step-num-big">1</div>
+      <div class="step-body">
+        <h3>Go to claude.ai</h3>
+        <p>Open your browser on your phone or computer. Type <strong>claude.ai</strong> in the address bar and hit enter. Click "Sign up" and create a free account with your work email.</p>
+        <div class="mock-browser">
+          <div class="mock-bar">
+            <div class="mock-dot r"></div>
+            <div class="mock-dot y"></div>
+            <div class="mock-dot g"></div>
+            <div class="mock-url">claude.ai</div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-claude-logo"><span>C</span> Claude</div>
+            <div style="text-align:center;padding:20px 0;">
+              <div style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px;">Start a new conversation</div>
+              <div style="font-size:0.85rem;color:var(--gray);">Type your message below to begin</div>
+            </div>
+            <div class="mock-input">
+              <div class="mock-input-text">Message Claude...</div>
+              <button class="mock-send">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-row">
+      <div class="step-num-big">2</div>
+      <div class="step-body">
+        <h3>Start a New Conversation</h3>
+        <p>Click <strong>"New conversation"</strong> in the left sidebar (or the pencil icon on mobile). Do this for every new client — never continue a different client's thread.</p>
+        <div style="background:var(--navy);border-radius:10px;padding:16px 20px;max-width:320px;display:flex;align-items:center;gap:14px;">
+          <div style="font-size:1.4rem;">✏️</div>
+          <div>
+            <div style="color:var(--gold);font-size:0.75rem;font-weight:700;">CLICK THIS</div>
+            <div style="color:var(--white);font-size:0.9rem;font-weight:700;">New conversation</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:0.75rem;">One per client, always</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-row">
+      <div class="step-num-big">3</div>
+      <div class="step-body">
+        <h3>Tell Claude Which Specialist It Is</h3>
+        <p>Claude does not know it is your real estate AI until you tell it. Your first message activates the specialist. Use this format — fill in the parts in gold:</p>
+        <div class="msg-template">
+          <div class="label">Message format — fill in the gold parts</div>
+          <p>You are the <span class="fill">[specialist name]</span> for a real estate team.<br>
+          Read <span class="fill">[folder name]</span>/identity.md, rules.md, and examples.md.<br>
+          Here is my new <span class="fill">[buyer / seller]</span> lead:<br>
+          Name: <span class="fill">[client name]</span><br>
+          Situation: <span class="fill">[what they told you — budget, area, timeline]</span></p>
+        </div>
+        <p style="font-size:0.82rem;color:var(--gray);margin-top:12px;">Not sure which specialist? Use <strong>Orchestrator</strong> and folder <strong>00_orchestrator</strong> — it will tell you what to do next.</p>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-row">
+      <div class="step-num-big">4</div>
+      <div class="step-body">
+        <h3>Read What Comes Back</h3>
+        <p>Claude will produce a structured output — a profile, a research brief, a draft email, or a compliance checklist. <strong>Read it before you do anything with it.</strong></p>
+        <div class="mock-browser">
+          <div class="mock-bar">
+            <div class="mock-dot r"></div>
+            <div class="mock-dot y"></div>
+            <div class="mock-dot g"></div>
+            <div class="mock-url">claude.ai</div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-msg">
+              <strong>Claude (Lead Qualifier):</strong><br><br>
+              BUYER PROFILE — Marcus and Tanya Webb<br>
+              Budget: $450,000 | Area: South Austin<br>
+              Timeline: Before August school start<br>
+              Pre-approval: Pending — recommend Cornerstone Home Lending<br>
+              DPA Match: My First Texas Home (TDHCA) — estimated $9,000 assistance<br>
+              <br>
+              <em>Ready to hand off to 02 Property Research.</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-row">
+      <div class="step-num-big">5</div>
+      <div class="step-body">
+        <h3>Pass the Handoff to the Next Specialist</h3>
+        <p>At the end of each response, Claude tells you which specialist comes next. Start a <strong>new conversation</strong>, paste the handoff package Claude gave you, and activate the next specialist the same way you did in Step 3.</p>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:12px 18px;font-size:0.85rem;font-weight:700;">01 Lead Qualifier<br><span style="color:var(--gold);font-size:0.75rem;">produces buyer profile</span></div>
+          <div style="font-size:1.5rem;color:var(--gold);">→</div>
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:12px 18px;font-size:0.85rem;font-weight:700;">02 Property Research<br><span style="color:var(--gold);font-size:0.75rem;">receives profile, runs research</span></div>
+          <div style="font-size:1.5rem;color:var(--gold);">→</div>
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:12px 18px;font-size:0.85rem;font-weight:700;">03 Client Comms<br><span style="color:var(--gold);font-size:0.75rem;">drafts email for agent to send</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout mt-md">
+    <div class="callout-item">
+      <h4>⚡ One Rule Above All</h4>
+      <p>Never send anything the AI writes directly to a client. You read it, you edit it, you send it. You are the agent. The AI is your assistant.</p>
+    </div>
+    <div class="callout-item">
+      <h4>🔒 Compliance is Post-Signature Only</h4>
+      <p>Only run the Compliance specialist after a client signs a document and sends it back. Never before.</p>
+    </div>
+    <div class="callout-item">
+      <h4>🔄 One Client Per Chat</h4>
+      <p>Always start a new conversation for each new client. Never mix two clients in the same thread.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════
      PHOTO STRIP
-════════════════════════════════════════ -->
-<section style="padding-top: 48px; padding-bottom: 0;">
-  <div class="photo-strip">
-    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=75&auto=format&fit=crop" alt="Modern home interior" loading="lazy" />
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=75&auto=format&fit=crop" alt="Luxury home exterior" loading="lazy" />
-    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=75&auto=format&fit=crop" alt="Bright living room" loading="lazy" />
+══════════════════════════════════ -->
+<div style="max-width:1100px;margin:0 auto;padding:0 24px 0;">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=75&auto=format&fit=crop" alt="Modern home" style="width:100%;height:200px;object-fit:cover;border-radius:var(--r);" loading="lazy"/>
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=75&auto=format&fit=crop" alt="Luxury exterior" style="width:100%;height:200px;object-fit:cover;border-radius:var(--r);" loading="lazy"/>
+    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=75&auto=format&fit=crop" alt="Bright living room" style="width:100%;height:200px;object-fit:cover;border-radius:var(--r);" loading="lazy"/>
   </div>
-</section>
+</div>
 
-<!-- ════════════════════════════════════════
+<!-- ══════════════════════════════════
      SPECIALISTS
-════════════════════════════════════════ -->
-<section id="specialists">
-  <div class="section-label">The Team</div>
-  <h2>Meet the Six Specialists</h2>
-  <p class="section-sub">Each specialist has one job. It knows its job deeply. You do not need to explain the system to it — just activate it and give it the client info.</p>
+══════════════════════════════════ -->
+<section id="specialists" class="section">
+  <div class="eyebrow">Your AI Team</div>
+  <h2>The 6 Specialists</h2>
+  <p class="lead">Each specialist does one job and one job only. You do not need to explain the system to it — just tell it who it is and give it the client information.</p>
 
-  <!-- Flow diagram -->
-  <div class="flow-wrap" style="margin-bottom: 40px;">
-    <div class="flow">
-      <div class="flow-node highlight">
-        <div class="fn-num">00</div>
-        <div class="fn-name">Orchestrator</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="fn-num">01</div>
-        <div class="fn-name">Lead Qualifier</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="fn-num">02</div>
-        <div class="fn-name">Property Research</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="fn-num">03</div>
-        <div class="fn-name">Client Comms</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="fn-num">04</div>
-        <div class="fn-name">Transaction Coord</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="fn-num">05</div>
-        <div class="fn-name">Compliance</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="specialists-grid">
+  <div class="spec-grid">
     <div class="spec-card">
-      <div class="spec-number">SPECIALIST 00</div>
-      <h3>Orchestrator</h3>
-      <p>The traffic controller. Routes every situation to the right specialist. Always start here when you do not know where to go.</p>
-      <div class="spec-trigger"><span>▶</span> Activate when: Unsure where to start</div>
-    </div>
-    <div class="spec-card">
-      <div class="spec-number">SPECIALIST 01</div>
-      <h3>Lead Qualifier</h3>
-      <p>Builds deep buyer and seller profiles. Matches buyers to DPA programs and lenders. Builds seller prep checklists. Runs the home photo analysis flow.</p>
-      <div class="spec-trigger"><span>▶</span> Activate when: New lead comes in</div>
-    </div>
-    <div class="spec-card">
-      <div class="spec-number">SPECIALIST 02</div>
-      <h3>Property Research</h3>
-      <p>Neighborhood analysis, comparable sales, school ratings, market trends. Delivers a scored match report for buyer criteria.</p>
-      <div class="spec-trigger"><span>▶</span> Activate when: Buyer is ready to search</div>
-    </div>
-    <div class="spec-card">
-      <div class="spec-number">SPECIALIST 03</div>
-      <h3>Client Communication</h3>
-      <p>Drafts every client message — showing confirmations, offer updates, inspection follow-ups, next-step emails. You read, edit, send.</p>
-      <div class="spec-trigger"><span>▶</span> Activate when: Client needs an update</div>
-    </div>
-    <div class="spec-card">
-      <div class="spec-number">SPECIALIST 04</div>
-      <h3>Transaction Coordinator</h3>
-      <p>Tracks the deal from executed contract to closing table. Manages Texas milestone dates: Effective Date, Option Period, earnest money, title deadlines. Final stop for every deal.</p>
-      <div class="spec-trigger"><span>▶</span> Activate when: Contract is signed</div>
-    </div>
-    <div class="spec-card">
-      <div class="spec-number">SPECIALIST 05</div>
-      <h3>Compliance Review</h3>
-      <p>Post-signature document review only. Checks TREC forms, required disclosures, dates, signatures. Returns CLEARED or FLAGGED with blocking items listed.</p>
-      <div class="spec-trigger"><span>▶</span> Activate when: Signed doc returned</div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- ════════════════════════════════════════
-     DEAL JOURNEY
-════════════════════════════════════════ -->
-<section id="deal-journey">
-  <div class="section-label">Monday to Close</div>
-  <h2>The Full Deal Journey</h2>
-  <p class="section-sub">Here is what a typical buyer deal looks like — from first contact through closing — and which specialist handles each stage.</p>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
-    <!-- Buyer path -->
-    <div>
-      <h3 style="font-size:1rem; font-weight:700; margin-bottom:24px; color:var(--gold);">🏠 Buyer Journey</h3>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Day 1</div>
-          <h3>Lead Comes In</h3>
-          <p>Buyer calls, texts, or fills out a form. You collect basic info.</p>
-          <span class="timeline-who">01 Lead Qualifier</span>
+      <div class="spec-head">
+        <div class="spec-emoji">🎯</div>
+        <div class="spec-head-text">
+          <div class="spec-num">SPECIALIST 00</div>
+          <h3>Orchestrator</h3>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Day 1–3</div>
-          <h3>Full Buyer Profile Built</h3>
-          <p>Budget, must-haves, DPA program match, lender recommendation, pre-approval status.</p>
-          <span class="timeline-who">01 Lead Qualifier</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Day 3–7</div>
-          <h3>Property Search</h3>
-          <p>Neighborhood analysis, comparable homes, school scores, match report.</p>
-          <span class="timeline-who">02 Property Research</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Showings</div>
-          <h3>Client Updates</h3>
-          <p>Confirmation messages, follow-up emails, next-step communication — all drafted for your review.</p>
-          <span class="timeline-who">03 Client Comms</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Offer Day</div>
-          <h3>Offer Made + Accepted</h3>
-          <p>You write the offer. Effective Date is set. Option Period clock starts.</p>
-          <span class="timeline-who">You</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Post-Signature</div>
-          <h3>Contract Compliance Check</h3>
-          <p>Executed contract reviewed: TREC forms, dates, signatures, disclosures — CLEARED or FLAGGED.</p>
-          <span class="timeline-who">05 Compliance</span>
-        </div>
-        <div class="timeline-item done">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">To Close</div>
-          <h3>Transaction to Closing Table</h3>
-          <p>All milestones tracked. Every deadline flagged. Deal closes or terminates — this specialist handles both.</p>
-          <span class="timeline-who">04 Transaction Coord</span>
-        </div>
+      </div>
+      <div class="spec-body">
+        <p>The traffic controller. Reads any situation and tells you which specialist to use. Start here when you are not sure where to go. It asks one question if needed, then routes you.</p>
+        <div class="spec-when"><span>▶ Use when:</span> You are not sure which specialist to activate</div>
       </div>
     </div>
 
-    <!-- Seller path -->
-    <div>
-      <h3 style="font-size:1rem; font-weight:700; margin-bottom:24px; color:var(--gold);">🏡 Seller Journey</h3>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Day 1</div>
-          <h3>Seller Lead Comes In</h3>
-          <p>Homeowner wants to list. You collect address, timeline, motivation.</p>
-          <span class="timeline-who">01 Lead Qualifier</span>
+    <div class="spec-card">
+      <div class="spec-head">
+        <div class="spec-emoji">👤</div>
+        <div class="spec-head-text">
+          <div class="spec-num">SPECIALIST 01</div>
+          <h3>Lead Qualifier</h3>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Day 1–3</div>
-          <h3>Seller Profile + Prep Checklist</h3>
-          <p>Room-by-room prep checklist generated. Motivations and timeline documented.</p>
-          <span class="timeline-who">01 Lead Qualifier</span>
+      </div>
+      <div class="spec-body">
+        <p>Builds the full profile for every new lead. For buyers: budget, must-haves, DPA program match, lender recommendation. For sellers: prep checklist, photo analysis. All documented before you make a single call.</p>
+        <div class="spec-when"><span>▶ Use when:</span> A new buyer or seller lead comes in</div>
+      </div>
+    </div>
+
+    <div class="spec-card">
+      <div class="spec-head">
+        <div class="spec-emoji">🏘️</div>
+        <div class="spec-head-text">
+          <div class="spec-num">SPECIALIST 02</div>
+          <h3>Property Research</h3>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Pre-Listing</div>
-          <h3>Home Photo Analysis</h3>
-          <p>Seller submits photos. AI reviews each room against listing checklist. Photo prep report delivered.</p>
-          <span class="timeline-who">01 Lead Qualifier</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">CMA</div>
-          <h3>Comparable Market Analysis</h3>
-          <p>Recent sales in the neighborhood. Pricing recommendation. Market trend summary.</p>
-          <span class="timeline-who">02 Property Research</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Listed</div>
+      </div>
+      <div class="spec-body">
+        <p>Runs the neighborhood analysis and pulls comparable sales based on the buyer's exact criteria. Delivers school ratings, market trends, days on market, and a scored match report — so you walk into the search ready.</p>
+        <div class="spec-when"><span>▶ Use when:</span> Buyer is approved and ready to start searching</div>
+      </div>
+    </div>
+
+    <div class="spec-card">
+      <div class="spec-head">
+        <div class="spec-emoji">✉️</div>
+        <div class="spec-head-text">
+          <div class="spec-num">SPECIALIST 03</div>
           <h3>Client Communication</h3>
-          <p>Feedback after showings, offer summaries, counter-offer updates drafted for your review.</p>
-          <span class="timeline-who">03 Client Comms</span>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Under Contract</div>
-          <h3>Contract Compliance + Tracking</h3>
-          <p>Executed contract reviewed. Seller's Disclosure, TREC forms checked. Milestones tracked to close.</p>
-          <span class="timeline-who">05 Compliance + 04 TC</span>
+      </div>
+      <div class="spec-body">
+        <p>Drafts every message to your client — showing confirmations, offer updates, inspection results, financing delays, next-step emails. Produces both an email version and a text version. You review, edit, and send. It never sends for you.</p>
+        <div class="spec-when"><span>▶ Use when:</span> You need to send a message to your client</div>
+      </div>
+    </div>
+
+    <div class="spec-card">
+      <div class="spec-head">
+        <div class="spec-emoji">📅</div>
+        <div class="spec-head-text">
+          <div class="spec-num">SPECIALIST 04</div>
+          <h3>Transaction Coordinator</h3>
         </div>
-        <div class="timeline-item done">
-          <div class="timeline-dot"></div>
-          <div class="timeline-day">Close</div>
-          <h3>Closing Table</h3>
-          <p>Final walkthrough, HUD review, closing confirmed. Transaction Coordinator closes the file.</p>
-          <span class="timeline-who">04 Transaction Coord</span>
+      </div>
+      <div class="spec-body">
+        <p>Takes over the moment a contract is signed. Tracks every Texas deadline — Effective Date, Option Period, earnest money at title, appraisal, clear-to-close, final walkthrough. Flags risks before they become problems. The deal ends here: closing table or termination.</p>
+        <div class="spec-when"><span>▶ Use when:</span> A contract is executed (both sides signed)</div>
+      </div>
+    </div>
+
+    <div class="spec-card">
+      <div class="spec-head">
+        <div class="spec-emoji">✅</div>
+        <div class="spec-head-text">
+          <div class="spec-num">SPECIALIST 05</div>
+          <h3>Compliance Review</h3>
+        </div>
+      </div>
+      <div class="spec-body">
+        <p>Post-signature document review only. When a signed contract or disclosure comes back, this specialist checks every field — TREC form numbers, signatures, initials, dates, required Texas disclosures. Returns CLEARED (safe to file) or FLAGGED (do not send to title).</p>
+        <div class="spec-when"><span>▶ Use when:</span> A signed document comes back from the client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════
+     DO THIS / NOT THIS
+══════════════════════════════════ -->
+<section id="do-this" class="section">
+  <div class="eyebrow">Common Mistakes</div>
+  <h2>Do This. Not This.</h2>
+  <p class="lead">These are the mistakes new agents make most often. Read them once and you will not make them.</p>
+
+  <div class="dos-grid">
+    <div class="dos-col wrong">
+      <h3>❌ Not This</h3>
+      <div class="dos-items">
+        <div class="dos-item">
+          <div class="dos-icon">❌</div>
+          <div>
+            <p><strong>Copy the AI draft and send it directly to the client</strong></p>
+            <div class="sub">The AI does not know your client personally. You do. Always read and edit before sending.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">❌</div>
+          <div>
+            <p><strong>Run Compliance before the document comes back signed</strong></p>
+            <div class="sub">Compliance only runs post-signature. Running it early produces useless output.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">❌</div>
+          <div>
+            <p><strong>Paste Client A's profile into Client B's conversation</strong></p>
+            <div class="sub">Always start a fresh new conversation for every new client. Mixed context = wrong output.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">❌</div>
+          <div>
+            <p><strong>Skip the Orchestrator when you are not sure what to do</strong></p>
+            <div class="sub">That is exactly what it is for. Going to the wrong specialist wastes time.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">❌</div>
+          <div>
+            <p><strong>Use AI to answer a legal question from a client</strong></p>
+            <div class="sub">Refer legal questions to an attorney. Always. No exceptions.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">❌</div>
+          <div>
+            <p><strong>Use AI when a client is upset or distressed</strong></p>
+            <div class="sub">Emotional situations need a human voice. Pick up the phone.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dos-col right">
+      <h3>✅ Do This</h3>
+      <div class="dos-items">
+        <div class="dos-item">
+          <div class="dos-icon">✅</div>
+          <div>
+            <p><strong>Read every AI draft before it goes anywhere</strong></p>
+            <div class="sub">You are the agent. You are responsible. The AI assists. You decide.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">✅</div>
+          <div>
+            <p><strong>Only send signed documents to Compliance</strong></p>
+            <div class="sub">Wait until the executed document comes back. Then run Compliance immediately.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">✅</div>
+          <div>
+            <p><strong>Start a new conversation for every new client</strong></p>
+            <div class="sub">Click "New conversation" each time. One client per chat thread, always.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">✅</div>
+          <div>
+            <p><strong>Go to the Orchestrator first when unsure</strong></p>
+            <div class="sub">Type one sentence about the situation. It routes you to the right specialist immediately.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">✅</div>
+          <div>
+            <p><strong>Refer legal questions to an attorney</strong></p>
+            <div class="sub">"That is a great question — let me connect you with our attorney." Done.</div>
+          </div>
+        </div>
+        <div class="dos-item">
+          <div class="dos-icon">✅</div>
+          <div>
+            <p><strong>Call Diana when something does not feel right</strong></p>
+            <div class="sub">No question is too small. If it feels off, it probably is. Escalate.</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider" />
+<hr class="divider"/>
 
-<!-- ════════════════════════════════════════
-     RESPONSIBILITIES
-════════════════════════════════════════ -->
-<section id="responsibilities">
-  <div class="section-label">Clarity</div>
+<!-- ══════════════════════════════════
+     DEAL JOURNEY
+══════════════════════════════════ -->
+<section id="deal-journey" class="section">
+  <div class="eyebrow">From Lead to Close</div>
+  <h2>The Full Deal Journey</h2>
+  <p class="lead">Here is exactly what happens on a real deal — and which specialist handles each step.</p>
+
+  <div class="journey-grid">
+    <div>
+      <div class="journey-title">🏠 Buyer Deal</div>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Day 1</div>
+          <h4>New Lead Comes In</h4>
+          <p>Buyer contacts you. You collect name, phone, what they told you.</p>
+          <span class="tl-badge">01 Lead Qualifier</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Day 1–3</div>
+          <h4>Full Buyer Profile Built</h4>
+          <p>Budget, must-haves, pre-approval status, DPA program match (up to $9K assistance), lender recommendation.</p>
+          <span class="tl-badge">01 Lead Qualifier</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Day 3–7</div>
+          <h4>Property Search</h4>
+          <p>Neighborhood analysis, comparable homes in their price range, school ratings, market pace.</p>
+          <span class="tl-badge">02 Property Research</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Showings</div>
+          <h4>Client Updates Drafted</h4>
+          <p>Confirmation messages, feedback follow-ups, next-step emails — all drafted, you review and send.</p>
+          <span class="tl-badge">03 Client Comms</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Offer Day</div>
+          <h4>Offer Written + Accepted</h4>
+          <p>You write the offer. Seller accepts. Effective Date is set — this starts all Texas deadline clocks.</p>
+          <span class="tl-badge">You + Agent</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Post-Signature</div>
+          <h4>Compliance Check</h4>
+          <p>Executed contract comes back. TREC forms, dates, signatures all verified. Returns CLEARED or FLAGGED.</p>
+          <span class="tl-badge">05 Compliance</span>
+        </div>
+        <div class="tl-item final">
+          <div class="tl-dot"></div>
+          <div class="tl-day">To Close</div>
+          <h4>Milestones Tracked to Close</h4>
+          <p>Option Period, earnest money, inspection, appraisal, clear-to-close, final walkthrough. Every deadline flagged early.</p>
+          <span class="tl-badge">04 Transaction Coord</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="journey-title">🏡 Seller Deal</div>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Day 1</div>
+          <h4>Seller Lead Comes In</h4>
+          <p>Homeowner wants to list. You collect address, timeline, and motivation.</p>
+          <span class="tl-badge">01 Lead Qualifier</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Day 1–3</div>
+          <h4>Seller Profile + Prep Checklist</h4>
+          <p>Room-by-room prep checklist built. Motivations, lowest acceptable price, liens, timeline documented.</p>
+          <span class="tl-badge">01 Lead Qualifier</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Pre-Listing</div>
+          <h4>Home Photo Analysis</h4>
+          <p>Seller submits phone photos. AI reviews each room against the listing checklist. Photo prep report delivered.</p>
+          <span class="tl-badge">01 Lead Qualifier</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">CMA</div>
+          <h4>Comparable Market Analysis</h4>
+          <p>Recent sales in the neighborhood. Pricing recommendation. List-to-sale ratio so you know how much room to negotiate.</p>
+          <span class="tl-badge">02 Property Research</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Listed</div>
+          <h4>Showing Feedback + Offer Updates</h4>
+          <p>Feedback after showings, offer summaries, counter-offer communications — all drafted for your review.</p>
+          <span class="tl-badge">03 Client Comms</span>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Under Contract</div>
+          <h4>Compliance + Transaction Tracking</h4>
+          <p>Seller's Disclosure Notice (TREC OP-H), all TREC forms checked. Milestones tracked from contract to close.</p>
+          <span class="tl-badge">05 Compliance + 04 TC</span>
+        </div>
+        <div class="tl-item final">
+          <div class="tl-dot"></div>
+          <div class="tl-day">Close</div>
+          <h4>Closing Table</h4>
+          <p>Final walkthrough confirmed, closing scheduled. Transaction Coordinator closes the file. Deal done.</p>
+          <span class="tl-badge">04 Transaction Coord</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════
+     WHO DOES WHAT
+══════════════════════════════════ -->
+<section id="who-does-what" class="section">
+  <div class="eyebrow">Clear Roles</div>
   <h2>Who Does What</h2>
-  <p class="section-sub">The AI does the research, drafting, and tracking. You do the judgment, relationship, and final decisions. This line does not blur.</p>
+  <p class="lead">The AI handles the research, drafting, and tracking. You handle the judgment, the relationship, and every final decision. This line never blurs.</p>
 
-  <div class="resp-grid">
-    <div class="resp-col">
-      <h3><span class="badge-ai">AI Handles</span></h3>
-      <ul class="resp-list">
-        <li><span class="resp-icon">📋</span> Building buyer and seller profiles</li>
-        <li><span class="resp-icon">🏘️</span> Neighborhood and comp research</li>
-        <li><span class="resp-icon">✉️</span> Drafting all client messages</li>
-        <li><span class="resp-icon">📅</span> Tracking contract milestone dates</li>
-        <li><span class="resp-icon">📝</span> Reviewing compliance on executed docs</li>
-        <li><span class="resp-icon">📸</span> Reviewing home photos against prep checklist</li>
-        <li><span class="resp-icon">🏦</span> Matching buyers to DPA programs</li>
-        <li><span class="resp-icon">🔄</span> Routing between specialists</li>
+  <div class="who-grid">
+    <div class="who-col">
+      <div class="who-head ai">🤖 The AI Handles This</div>
+      <ul class="who-list">
+        <li><span class="who-icon">📋</span> Building buyer and seller profiles</li>
+        <li><span class="who-icon">🏘️</span> Neighborhood research and comparable sales</li>
+        <li><span class="who-icon">✉️</span> Drafting all client emails and texts</li>
+        <li><span class="who-icon">📅</span> Tracking every contract deadline</li>
+        <li><span class="who-icon">📝</span> Compliance review on executed documents</li>
+        <li><span class="who-icon">📸</span> Reviewing home photos against prep checklist</li>
+        <li><span class="who-icon">🏦</span> Matching buyers to DPA programs and lenders</li>
+        <li><span class="who-icon">🔄</span> Routing between specialists automatically</li>
       </ul>
     </div>
-    <div class="resp-col">
-      <h3><span class="badge-you">You Handle</span></h3>
-      <ul class="resp-list">
-        <li><span class="resp-icon">📞</span> First contact and relationship building</li>
-        <li><span class="resp-icon">🏠</span> Showing homes and walking properties</li>
-        <li><span class="resp-icon">💼</span> Writing and negotiating offers</li>
-        <li><span class="resp-icon">✅</span> Reviewing and approving every AI draft</li>
-        <li><span class="resp-icon">⚖️</span> Legal and ethics questions</li>
-        <li><span class="resp-icon">😥</span> Emotional or distressed client conversations</li>
-        <li><span class="resp-icon">🚩</span> Deciding what to do when compliance flags a doc</li>
-        <li><span class="resp-icon">📬</span> Actually sending every message to the client</li>
+    <div class="who-col">
+      <div class="who-head you">🧑 You Handle This</div>
+      <ul class="who-list">
+        <li><span class="who-icon">📞</span> First contact and relationship building</li>
+        <li><span class="who-icon">🏠</span> Showing homes and walking properties</li>
+        <li><span class="who-icon">💼</span> Writing and negotiating offers</li>
+        <li><span class="who-icon">✅</span> Reviewing and approving every AI draft</li>
+        <li><span class="who-icon">⚖️</span> Legal and ethics questions</li>
+        <li><span class="who-icon">😥</span> Emotionally distressed client conversations</li>
+        <li><span class="who-icon">🚩</span> Deciding what to do when compliance flags a doc</li>
+        <li><span class="who-icon">📬</span> Actually pressing send on every message</li>
       </ul>
     </div>
   </div>
 </section>
 
-<hr class="divider" />
+<hr class="divider"/>
 
-<!-- ════════════════════════════════════════
+<!-- ══════════════════════════════════
      WHEN STUCK
-════════════════════════════════════════ -->
-<section id="when-stuck">
-  <div class="section-label">Troubleshooting</div>
+══════════════════════════════════ -->
+<section id="when-stuck" class="section">
+  <div class="eyebrow">Troubleshooting</div>
   <h2>When Something Goes Wrong</h2>
-  <p class="section-sub">Most situations have a clear next step. Here are the ones new agents hit most often.</p>
+  <p class="lead">Every situation below has a clear next step. When in doubt — call Diana.</p>
 
-  <div class="scenario-grid">
-    <div class="scenario-card">
-      <div class="sc-label blocked">Stop — Human Required</div>
+  <div class="esc-grid">
+    <div class="esc-card">
+      <span class="esc-tag stop">🛑 Stop Immediately</span>
       <h3>Compliance Returns FLAGGED</h3>
-      <p>The compliance specialist found a blocking issue — missing signature, wrong date, missing disclosure. Do not send to title.</p>
-      <span class="sc-action blocked">Call Diana immediately</span>
+      <p>A blocking issue was found — missing signature, wrong date, or missing disclosure. Do not send to title. Do not proceed.</p>
+      <span class="esc-action stop">Call Diana now</span>
     </div>
-    <div class="scenario-card">
-      <div class="sc-label human">Escalate</div>
+    <div class="esc-card">
+      <span class="esc-tag call">📞 Escalate</span>
       <h3>Client Is Upset or Emotional</h3>
-      <p>AI does not handle emotional situations. If a buyer is panicking or a seller is angry — pick up the phone.</p>
-      <span class="sc-action human">You handle this one</span>
+      <p>AI does not handle emotional conversations. If a buyer is panicking or a seller is upset — put down the keyboard and pick up the phone.</p>
+      <span class="esc-action call">You handle this one</span>
     </div>
-    <div class="scenario-card">
-      <div class="sc-label human">Escalate</div>
-      <h3>Legal Question from Client</h3>
-      <p>Client asks about contract terms, fair housing, or legal rights. Never answer with AI-drafted text. Refer to an attorney.</p>
-      <span class="sc-action human">Refer to attorney</span>
+    <div class="esc-card">
+      <span class="esc-tag call">📞 Escalate</span>
+      <h3>Client Asks a Legal Question</h3>
+      <p>Fair housing, contract rights, disclosure obligations. Never answer with AI text. Always refer to an attorney.</p>
+      <span class="esc-action call">Refer to attorney</span>
     </div>
-    <div class="scenario-card">
-      <div class="sc-label caution">Caution</div>
-      <h3>AI Response Doesn't Look Right</h3>
-      <p>The draft feels off, the dates look wrong, or something seems inconsistent with what the client told you.</p>
-      <span class="sc-action caution">Do not send — verify first</span>
+    <div class="esc-card">
+      <span class="esc-tag check">⚠️ Pause and Check</span>
+      <h3>AI Response Looks Off</h3>
+      <p>Dates that do not add up, names that are wrong, details that do not match what the client told you. Trust your gut.</p>
+      <span class="esc-action check">Do not send — verify first</span>
     </div>
-    <div class="scenario-card">
-      <div class="sc-label caution">Caution</div>
-      <h3>You Don't Know Which Specialist to Use</h3>
-      <p>That is exactly what the Orchestrator is for. Start there and it will route you.</p>
-      <span class="sc-action caution">Start with Orchestrator (00)</span>
+    <div class="esc-card">
+      <span class="esc-tag check">⚠️ Use the Orchestrator</span>
+      <h3>Not Sure Which Specialist to Use</h3>
+      <p>That is exactly what the Orchestrator is for. Describe the situation in one sentence and it will route you.</p>
+      <span class="esc-action check">Start with Orchestrator (00)</span>
     </div>
-    <div class="scenario-card">
-      <div class="sc-label human">Escalate</div>
-      <h3>Offer Negotiation — Over Ask or Complex</h3>
-      <p>Escalation pricing, multiple offers, or complex terms require Diana's judgment. AI does not negotiate.</p>
-      <span class="sc-action human">Call Diana</span>
+    <div class="esc-card">
+      <span class="esc-tag call">📞 Escalate</span>
+      <h3>Negotiation Over Ask Price</h3>
+      <p>Multiple offers, escalation clauses, or complex counter terms require Diana's judgment. The AI does not negotiate.</p>
+      <span class="esc-action call">Call Diana</span>
     </div>
   </div>
 
-  <!-- Quick escalation reminder -->
-  <div class="rules-box" style="margin-top: 32px;">
-    <div class="rule-item">
-      <h4>📞 Diana — Anytime</h4>
-      <p>Complex negotiations, flagged compliance, anything that does not feel right. No question is too small.</p>
+  <div class="callout">
+    <div class="callout-item">
+      <h4>📞 Diana — Call Anytime</h4>
+      <p>Complex negotiations, flagged compliance, anything that does not feel right. No question is too small. That is what she is there for.</p>
     </div>
-    <div class="rule-item">
-      <h4>⚖️ Attorney — Legal Questions</h4>
-      <p>Clients asking about contract rights, fair housing, disclosure obligations. Always refer out. Never draft legal advice.</p>
+    <div class="callout-item">
+      <h4>⚖️ Attorney — Legal Questions Only</h4>
+      <p>Any client question about contract rights, fair housing, or disclosure requirements. Refer out. Never use AI for legal answers.</p>
     </div>
-    <div class="rule-item">
+    <div class="callout-item">
       <h4>🏦 Lender — Financing Questions</h4>
-      <p>DPA eligibility, rate locks, underwriting conditions. The AI identifies the right lender — the lender answers the question.</p>
+      <p>The AI identifies which DPA program and lender fits the buyer. The lender answers the actual financing questions.</p>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
+<!-- ══════════════════════════════════
      FOOTER
-════════════════════════════════════════ -->
+══════════════════════════════════ -->
 <footer>
-  <p>Real Estate AI Multi-Agent Flow &nbsp;|&nbsp; Built for real estate teams using <a href="https://claude.ai" target="_blank" rel="noopener">Claude AI</a></p>
-  <p style="margin-top: 8px;">View the full system on <a href="https://github.com/DocEmmettBrownPhd/diana-real-estate-agency-system" target="_blank" rel="noopener">GitHub</a></p>
+  <p>Real Estate AI Multi-Agent System &nbsp;|&nbsp; Built for real estate teams using <a href="https://claude.ai" target="_blank" rel="noopener">Claude AI</a></p>
+  <p>View the full system on <a href="https://github.com/DocEmmettBrownPhd/diana-real-estate-agency-system" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
 </body>
