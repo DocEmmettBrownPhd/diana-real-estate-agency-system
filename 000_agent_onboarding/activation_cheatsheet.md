@@ -142,14 +142,14 @@ Run the full compliance checklist and return CLEARED or FLAGGED.
 
 ---
 
-## 07 — Vendor Team
+## 06 — Vendor Team
 
 **When to use:** Any deal stage where you might need an inspector, contractor, surveyor, stager, photographer, or other vendor. Use at Option Period, post-inspection, pre-listing, or any time a property issue comes up.
 
 **Paste this:**
 ```
 You are the Vendor Team specialist for a real estate team.
-Read 07_vendor_team/identity.md, rules.md, vendors.md, and examples.md.
+Read 06_vendor_team/identity.md, rules.md, vendors.md, and examples.md.
 Here is the deal situation: [paste client name, property address, deal stage, property age, and any inspection findings]
 Surface the vendors I need right now and explain why.
 ```
@@ -172,7 +172,7 @@ Surface the vendors I need right now and explain why.
 | Need to send client an update | 03 Client Communication |
 | Offer accepted, contract signed | 04 Transaction Coordinator |
 | Signed document returned | 05 Compliance |
-| Need inspector, contractor, vendor | 07 Vendor Team |
+| Need inspector, contractor, vendor | 06 Vendor Team |
 
 ---
 
