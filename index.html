@@ -26,6 +26,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--off);color:var
 .hero p{font-size:clamp(1rem,2.5vw,1.15rem);color:rgba(255,255,255,.84);max-width:500px;margin:0 auto 30px;}
 .btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:800;font-size:1rem;padding:15px 34px;border-radius:999px;text-decoration:none;transition:.2s;}
 .btn:hover{background:var(--gold-lt);}
+.btn-ghost{display:inline-block;background:transparent;color:#fff;font-weight:800;font-size:1rem;padding:14px 28px;border-radius:999px;text-decoration:none;border:2px solid rgba(255,255,255,.4);transition:.2s;margin-left:12px;}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+.hero-btns{display:flex;gap:0;justify-content:center;flex-wrap:wrap;gap:10px;}
 
 /* NAV */
 nav{background:var(--navy);position:sticky;top:0;z-index:200;display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:2px solid rgba(212,160,23,.25);}
@@ -220,7 +223,10 @@ hr.div{border:none;border-top:2px solid var(--light);}
     <div class="pill">Agent Onboarding — Start Here</div>
     <h1>Your <span>AI Team,</span><br>Step by Step</h1>
     <p>Eight specialists. One system. Built for agents who have never used AI before. This page shows you everything — from signing in to closing the deal.</p>
-    <a href="#what-is-claude" class="btn">Begin →</a>
+    <div class="hero-btns">
+      <a href="#what-is-claude" class="btn">Begin →</a>
+      <a href="https://github.com/DocEmmettBrownPhd/diana-real-estate-agency-system" target="_blank" rel="noopener" class="btn-ghost">⭐ View on GitHub</a>
+    </div>
   </div>
 </div>
 
@@ -319,7 +325,7 @@ hr.div{border:none;border-top:2px solid var(--light);}
       <div class="sn">3</div>
       <div class="sb">
         <h3>Upload all the specialist folders</h3>
-        <p>Inside the project, find the <strong>"Add content"</strong> or <strong>"Upload files"</strong> button. Upload every folder from the GitHub repo — 000 through 07. You only do this once.</p>
+        <p>Inside the project, find the <strong>"Add content"</strong> or <strong>"Upload files"</strong> button. Upload every folder from the GitHub repo — 000 through 06. You only do this once.</p>
         <div class="proj-mock">
           <div class="proj-head"><span>📁 Real Estate AI System</span></div>
           <div class="proj-files">
@@ -330,7 +336,7 @@ hr.div{border:none;border-top:2px solid var(--light);}
             <div class="pf"><span class="pf-icon">📂</span><span class="pf-name">03_client_communication/</span><span class="pf-status">✓ LOADED</span></div>
             <div class="pf"><span class="pf-icon">📂</span><span class="pf-name">04_transaction_coordinator/</span><span class="pf-status">✓ LOADED</span></div>
             <div class="pf"><span class="pf-icon">📂</span><span class="pf-name">05_compliance/</span><span class="pf-status">✓ LOADED</span></div>
-            <div class="pf"><span class="pf-icon">📂</span><span class="pf-name">07_vendor_team/</span><span class="pf-status">✓ LOADED</span></div>
+            <div class="pf"><span class="pf-icon">📂</span><span class="pf-name">06_vendor_team/</span><span class="pf-status">✓ LOADED</span></div>
           </div>
           <div class="proj-bottom">✅ System ready — all specialists loaded</div>
         </div>
@@ -482,7 +488,7 @@ hr.div{border:none;border-top:2px solid var(--light);}
       <div class="marr">→</div>
       <div class="mn vendor">
         <div class="mi">🔧</div>
-        <div class="mnum">07</div>
+        <div class="mnum">06</div>
         <div class="mname">Vendor<br>Team</div>
         <div class="mwhen">Any<br>stage</div>
       </div>
@@ -561,7 +567,7 @@ hr.div{border:none;border-top:2px solid var(--light);}
         <div><div class="sc-num">SPECIALIST 04</div><h3>Transaction Coordinator</h3></div>
       </div>
       <div class="sc-body">
-        <p>Takes over the moment a contract is signed. Tracks every Texas deadline — Effective Date, Option Period, earnest money, appraisal, clear-to-close. Works hand-in-hand with Compliance until the file closes. The deal ends here.</p>
+        <p>Takes over the moment a contract is signed. Tracks every Texas deadline — Effective Date, Option Period, earnest money, appraisal, clear-to-close. Works hand-in-hand with Compliance until the file closes.</p>
         <div class="sw"><span>▶ Use when:</span> A contract is executed (both sides signed)</div>
       </div>
     </div>
@@ -580,10 +586,10 @@ hr.div{border:none;border-top:2px solid var(--light);}
     <div class="sc special">
       <div class="sc-head vendor-head">
         <div class="se">🔧</div>
-        <div><div class="sc-num">SPECIALIST 07 — VENDOR TEAM</div><h3>Vendor Intelligence</h3></div>
+        <div><div class="sc-num">SPECIALIST 06 — VENDOR TEAM</div><h3>Vendor Intelligence</h3></div>
       </div>
       <div class="sc-body">
-        <p>Reads the deal stage and property details, then predicts which vendors you will need — before you think to ask. Surfaces the right contact with name, phone, and a one-sentence reason why they are the right fit for this specific deal. Buyers, sellers, pre-listing, inspection period, financing — it knows when to call who.</p>
+        <p>Reads the deal stage and property details, then predicts which vendors you will need — before you think to ask. Surfaces the right contact with name, phone, and a one-sentence reason why they are the right fit for this specific deal.</p>
         <div class="sw"><span>▶ Use when:</span> Any stage — it tells you who to call before you need to ask</div>
       </div>
     </div>
@@ -702,7 +708,7 @@ hr.div{border:none;border-top:2px solid var(--light);}
 
 <!-- ═══ VENDOR TEAM ═══ -->
 <section id="vendors" class="wrap">
-  <div class="eye">Specialist 07</div>
+  <div class="eye">Specialist 06</div>
   <h2>The Vendor Team</h2>
   <p class="lead">This specialist makes you look like you have a rolodex for everything — because now you do. It reads the deal stage and property details, then tells you exactly who to call and why, before you even think to ask.</p>
 
@@ -746,7 +752,7 @@ hr.div{border:none;border-top:2px solid var(--light);}
       </tbody>
     </table>
   </div>
-  <p style="font-size:.8rem;color:var(--gray);margin-top:12px;">All vendor contacts live in <strong>07_vendor_team/vendors.md</strong>. Diana updates that file with your preferred vendors and their direct numbers.</p>
+  <p style="font-size:.8rem;color:var(--gray);margin-top:12px;">All vendor contacts live in <strong>06_vendor_team/vendors.md</strong>. Diana updates that file with your preferred vendors and their direct numbers.</p>
 </section>
 
 <hr class="div"/>
@@ -798,9 +804,9 @@ hr.div{border:none;border-top:2px solid var(--light);}
         <div class="ti"><div class="td"></div><div class="tday">Day 3–7</div><h4>Property Search</h4><p>Neighborhood comps, school ratings, market pace, scored match report.</p><span class="tb">02 Property Research</span></div>
         <div class="ti"><div class="td"></div><div class="tday">Showings</div><h4>Client Updates Drafted</h4><p>Confirmation messages, feedback follow-ups — drafted for your review.</p><span class="tb">03 Client Comms</span></div>
         <div class="ti"><div class="td"></div><div class="tday">Offer Day</div><h4>Offer + Acceptance</h4><p>You write the offer. Seller accepts. Effective Date set — all Texas clocks start.</p><span class="tb">You + Agent</span></div>
-        <div class="ti vendor-step"><div class="td"></div><div class="tday">Option Period</div><h4>Inspectors Surfaced</h4><p>Vendor Team predicts inspectors needed based on property age and features. You make the calls.</p><span class="tb vendor">07 Vendor Team</span></div>
+        <div class="ti vendor-step"><div class="td"></div><div class="tday">Option Period</div><h4>Inspectors Surfaced</h4><p>Vendor Team predicts inspectors needed based on property age and features. You make the calls.</p><span class="tb vendor">06 Vendor Team</span></div>
         <div class="ti"><div class="td"></div><div class="tday">Post-Signature</div><h4>Compliance Check</h4><p>Executed contract reviewed — TREC forms, dates, signatures. CLEARED or FLAGGED.</p><span class="tb">05 Compliance</span></div>
-        <div class="ti fin"><div class="td"></div><div class="tday">To Close</div><h4>Milestones to Closing Table</h4><p>TC tracks every deadline. Compliance clears every doc. Vendor Team surfaces contractors as needed. File closes.</p><span class="tb">04 TC + 05 + 07</span></div>
+        <div class="ti fin"><div class="td"></div><div class="tday">To Close</div><h4>Milestones to Closing Table</h4><p>TC tracks every deadline. Compliance clears every doc. Vendor Team surfaces contractors as needed. File closes.</p><span class="tb">04 TC + 05 + 06</span></div>
       </div>
     </div>
     <div>
@@ -808,12 +814,12 @@ hr.div{border:none;border-top:2px solid var(--light);}
       <div class="tl">
         <div class="ti"><div class="td"></div><div class="tday">Day 1</div><h4>Seller Lead</h4><p>Homeowner wants to list. Collect address, timeline, motivation.</p><span class="tb">01 Lead Qualifier</span></div>
         <div class="ti"><div class="td"></div><div class="tday">Day 1–3</div><h4>Seller Profile + Prep Checklist</h4><p>Room-by-room prep checklist, motivations, lowest acceptable price, liens documented.</p><span class="tb">01 Lead Qualifier</span></div>
-        <div class="ti vendor-step"><div class="td"></div><div class="tday">Pre-Listing</div><h4>Stager + Handyman Surfaced</h4><p>Vendor Team surfaces the stager and handyman for punch-list repairs before photos.</p><span class="tb vendor">07 Vendor Team</span></div>
+        <div class="ti vendor-step"><div class="td"></div><div class="tday">Pre-Listing</div><h4>Stager + Handyman Surfaced</h4><p>Vendor Team surfaces the stager and handyman for punch-list repairs before photos.</p><span class="tb vendor">06 Vendor Team</span></div>
         <div class="ti"><div class="td"></div><div class="tday">Pre-Listing</div><h4>Home Photo Analysis</h4><p>Seller submits phone photos. AI reviews each room. Photo prep report delivered.</p><span class="tb">01 Lead Qualifier</span></div>
-        <div class="ti vendor-step"><div class="td"></div><div class="tday">1 Week Out</div><h4>Photographer Booked</h4><p>Vendor Team flags photographer booking window. Delivers gallery within 48 hours of shoot.</p><span class="tb vendor">07 Vendor Team</span></div>
+        <div class="ti vendor-step"><div class="td"></div><div class="tday">1 Week Out</div><h4>Photographer Booked</h4><p>Vendor Team flags photographer booking window. Delivers gallery within 48 hours of shoot.</p><span class="tb vendor">06 Vendor Team</span></div>
         <div class="ti"><div class="td"></div><div class="tday">CMA</div><h4>Comparable Market Analysis</h4><p>Recent sales, pricing recommendation, list-to-sale ratio.</p><span class="tb">02 Property Research</span></div>
         <div class="ti"><div class="td"></div><div class="tday">Listed</div><h4>Showing Feedback + Offer Updates</h4><p>Feedback, offer summaries, counter-offer comms — drafted for your review.</p><span class="tb">03 Client Comms</span></div>
-        <div class="ti fin"><div class="td"></div><div class="tday">Close</div><h4>Compliance + TC to Closing Table</h4><p>Every doc reviewed, every deadline tracked, every vendor surfaced. File closes.</p><span class="tb">04 TC + 05 + 07</span></div>
+        <div class="ti fin"><div class="td"></div><div class="tday">Close</div><h4>Compliance + TC to Closing Table</h4><p>Every doc reviewed, every deadline tracked, every vendor surfaced. File closes.</p><span class="tb">04 TC + 05 + 06</span></div>
       </div>
     </div>
   </div>
@@ -879,9 +885,14 @@ hr.div{border:none;border-top:2px solid var(--light);}
 </section>
 
 <!-- FOOTER -->
-<footer style="background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:34px 24px;font-size:.84rem;">
+<footer style="background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:48px 24px;font-size:.84rem;">
+  <div style="margin-bottom:20px;">
+    <a href="https://github.com/DocEmmettBrownPhd/diana-real-estate-agency-system" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:12px 24px;border-radius:999px;font-size:.9rem;font-weight:700;transition:.2s;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      View Full System on GitHub
+    </a>
+  </div>
   <p>Real Estate AI Multi-Agent System &nbsp;|&nbsp; Built for real estate teams using <a href="https://claude.ai" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Claude AI</a></p>
-  <p style="margin-top:8px;">View the full system on <a href="https://github.com/DocEmmettBrownPhd/diana-real-estate-agency-system" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">GitHub</a></p>
 </footer>
 
 </body>
