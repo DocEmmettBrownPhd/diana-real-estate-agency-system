@@ -133,7 +133,7 @@ STEP 4               STEP 5               STEP 6
 |                  | TREC form checklist                      | Drafting docs    |
 |                  | Sign-off checklist                       |                  |
 +------------------+------------------------------------------+------------------+
-| 07 Vendor Team   | Predict vendor needs by deal stage       | Scheduling       |
+| 06 Vendor Team   | Predict vendor needs by deal stage       | Scheduling       |
 |                  | Surface inspector, surveyor, contractor  | vendors          |
 |                  | contacts before agent has to ask         | directly         |
 +------------------+------------------------------------------+------------------+
@@ -166,7 +166,7 @@ Every specialist passes a structured block to the next one. No loose summaries. 
         |  passes: DEAL STATUS REPORT or DEADLINE ALERT
         |  (includes: full timeline, document checklist, risk flags)
         |
-        +---> 07 VENDOR TEAM (automatic at key deal stages)
+        +---> 06 VENDOR TEAM (automatic at key deal stages)
         |     (predicts who is needed, surfaces name + phone + reason)
         v
 05 COMPLIANCE
@@ -264,14 +264,14 @@ SELLER SUBMITS INQUIRY
 
 ## VENDOR TEAM — HOW IT WORKS
 
-The Vendor Team specialist (07) predicts who you will need before you think to ask.
+The Vendor Team specialist (06) predicts who you will need before you think to ask.
 
 ```
 DEAL STAGE DETECTED
          |
          v
 +----------------------------+
-| 07 VENDOR TEAM             |
+| 06 VENDOR TEAM             |
 | reads: stage + property    |
 | age + inspection findings  |
 +----------------------------+
@@ -455,7 +455,7 @@ The percentage relationship between a property's list price and its final sale p
         — understand the Texas contract milestones
 [ ] 5. Read 05_compliance/rules.md
         — know which TREC forms are required and when
-[ ] 6. Read 07_vendor_team/vendors.md
+[ ] 6. Read 06_vendor_team/vendors.md
         — know which vendors are available and for what
 [ ] 7. Ask Diana: which specialist folder is your primary role?
 [ ] 8. Read that specialist's examples.md
