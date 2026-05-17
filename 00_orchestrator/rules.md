@@ -22,10 +22,15 @@
 
 | Request Type | Primary Route | Also Notify |
 |-------------|--------------|-------------|
+| New agent onboarding / Day 1 | 000_agent_onboarding | — |
 | New buyer inquiry | 01_lead_qualifier | — |
 | New seller inquiry | 01_lead_qualifier | — |
 | Property research request | 02_property_research | — |
 | Draft email or text | 03_client_communication | — |
 | Deal milestone or deadline | 04_transaction_coordinator | — |
 | Document returned signed | 05_compliance | 04_transaction_coordinator |
+| Vendor needed (inspector, contractor, stager, etc.) | 07_vendor_team | 04_transaction_coordinator |
+| Option Period active | 07_vendor_team | 04_transaction_coordinator |
+| Inspection findings received | 07_vendor_team | 04_transaction_coordinator |
+| Pre-listing prep underway | 07_vendor_team | 01_lead_qualifier |
 | Ambiguous request | Ask one clarifying question | — |
