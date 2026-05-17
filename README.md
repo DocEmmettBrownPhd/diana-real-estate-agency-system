@@ -28,7 +28,7 @@ Incoming Request
       |                          +-------+-------+
       |                          |               |
       |                          v               v
-      +-- Any signed doc --> 05_compliance   07_vendor_team <-- Predicts vendor needs by stage
+      +-- Any signed doc --> 05_compliance   06_vendor_team <-- Predicts vendor needs by stage
                                                               (inspector, contractor, surveyor,
                                                                stager, photographer, attorney)
 ```
@@ -48,7 +48,7 @@ Work flows left to right. Each specialist receives a structured handoff from the
 | `03_client_communication/` | Client Communicator | Emails, texts, follow-ups. Writes in the voice of the agent on the deal. |
 | `04_transaction_coordinator/` | Transaction Coordinator | Deadlines, document checklists, who owes what, risk flags once a deal is live. |
 | `05_compliance/` | Compliance Reviewer | Reviews all documents after they come back signed. Flags issues. Produces sign-off checklist. Texas-specific disclosure requirements. Post-signature only. |
-| `07_vendor_team/` | Vendor Team | Predicts which vendors are needed based on deal stage and property details. Surfaces inspector, surveyor, contractor, stager, photographer, and attorney contacts before the agent has to ask. |
+| `06_vendor_team/` | Vendor Team | Predicts which vendors are needed based on deal stage and property details. Surfaces inspector, surveyor, contractor, stager, photographer, and attorney contacts before the agent has to ask. |
 
 ---
 
@@ -60,13 +60,13 @@ Work flows left to right. Each specialist receives a structured handoff from the
 3. Qualified lead profile handed to `02_property_research` — research brief built around the specific buyer profile and target area
 4. Research brief handed to `03_client_communication` — agent receives a draft follow-up email with property options and next steps
 5. Deal goes live — `04_transaction_coordinator` takes over, tracks all deadlines and documents
-6. `07_vendor_team` activates automatically at Option Period — surfaces inspectors, surveyors, and any vendor flagged by property age or condition
+6. `06_vendor_team` activates automatically at Option Period — surfaces inspectors, surveyors, and any vendor flagged by property age or condition
 7. Every executed document routes through `05_compliance` — post-signature review and sign-off checklist produced
 
 **New seller inquiry:**
 1. Orchestrator identifies as seller lead
 2. Lead qualifier captures: who is involved in the decision, lowest acceptable price, target price, condition of home, timeline, any outstanding liens. Seller receives pre-listing prep checklist and photo analysis report.
-3. `07_vendor_team` activates for pre-listing prep — surfaces stager, photographer, handyman as needed
+3. `06_vendor_team` activates for pre-listing prep — surfaces stager, photographer, handyman as needed
 4. Research brief built on comparable sales and current market conditions in their area
 5. Client communication drafts listing presentation and follow-up cadence
 6. Transaction coordinator manages offer review, contingencies, closing timeline
