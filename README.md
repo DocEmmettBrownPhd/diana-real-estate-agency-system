@@ -1,12 +1,14 @@
 # Diana's Real Estate Agency System
 
-An AI operating system for a four-person boutique real estate team in Austin. Six specialists work together, each owning one part of the workflow. Every request enters through the orchestrator and moves forward through explicit handoffs. A new agent can be operational in a day.
+An AI operating system for a four-person boutique real estate team in Austin. Eight specialists work together, each owning one part of the workflow. Every new agent starts at 000 before touching a live deal. Every request enters through the orchestrator and moves forward through explicit handoffs.
 
 ---
 
 ## System Architecture
 
 ```
+000_agent_onboarding   <-- Day 1 only. New agents start here before anything else.
+
 Incoming Request
       |
       v
@@ -23,13 +25,15 @@ Incoming Request
       |                                  v
       |                          04_transaction_coordinator <-- Tracks deadlines, docs, risks
       |                                  |
-      |                                  v
-      +-- Any document ----------> 05_compliance         <-- Post-signature review and sign-off
-      |
-      +-- New team member -------> 06_agent_onboarding   <-- Visual system overview, day one guide
+      |                          +-------+-------+
+      |                          |               |
+      |                          v               v
+      +-- Any signed doc --> 05_compliance   07_vendor_team <-- Predicts vendor needs by stage
+                                                              (inspector, contractor, surveyor,
+                                                               stager, photographer, attorney)
 ```
 
-Work flows left to right. Each specialist receives a structured handoff from the previous one and produces a structured output for the next. The compliance specialist reviews documents after they come back signed and produces a sign-off checklist.
+Work flows left to right. Each specialist receives a structured handoff from the previous one and produces a structured output for the next. The Vendor Team operates at any deal stage — it predicts who you need before you think to ask.
 
 ---
 
@@ -37,13 +41,14 @@ Work flows left to right. Each specialist receives a structured handoff from the
 
 | Folder | Specialist | Owns |
 |--------|-----------|------|
+| `000_agent_onboarding/` | Agent Onboarding | Visual system overview, day-one orientation. Used once by every new agent before their first live deal. |
 | `00_orchestrator/` | Orchestrator | Reads every incoming request. Routes it. Never does the work itself. |
 | `01_lead_qualifier/` | Lead Qualifier | Deep buyer and seller intake. Full profile before any showing or listing. DPA matching, lender recommendations, seller prep checklist and photo report. |
 | `02_property_research/` | Property Researcher | Comparables, neighborhood data, school ratings, market analysis per client profile. |
 | `03_client_communication/` | Client Communicator | Emails, texts, follow-ups. Writes in the voice of the agent on the deal. |
 | `04_transaction_coordinator/` | Transaction Coordinator | Deadlines, document checklists, who owes what, risk flags once a deal is live. |
-| `05_compliance/` | Compliance Reviewer | Reviews all documents after they come back signed. Flags issues. Produces sign-off checklist. Texas-specific disclosure requirements. |
-| `06_agent_onboarding/` | Agent Onboarding | Visual system overview for Diana, team members, and new agents. Flow charts and step-by-step maps of how the system works. |
+| `05_compliance/` | Compliance Reviewer | Reviews all documents after they come back signed. Flags issues. Produces sign-off checklist. Texas-specific disclosure requirements. Post-signature only. |
+| `07_vendor_team/` | Vendor Team | Predicts which vendors are needed based on deal stage and property details. Surfaces inspector, surveyor, contractor, stager, photographer, and attorney contacts before the agent has to ask. |
 
 ---
 
@@ -55,15 +60,17 @@ Work flows left to right. Each specialist receives a structured handoff from the
 3. Qualified lead profile handed to `02_property_research` — research brief built around the specific buyer profile and target area
 4. Research brief handed to `03_client_communication` — agent receives a draft follow-up email with property options and next steps
 5. Deal goes live — `04_transaction_coordinator` takes over, tracks all deadlines and documents
-6. Every executed document routes through `05_compliance` — post-signature review and sign-off checklist produced
+6. `07_vendor_team` activates automatically at Option Period — surfaces inspectors, surveyors, and any vendor flagged by property age or condition
+7. Every executed document routes through `05_compliance` — post-signature review and sign-off checklist produced
 
 **New seller inquiry:**
 1. Orchestrator identifies as seller lead
 2. Lead qualifier captures: who is involved in the decision, lowest acceptable price, target price, condition of home, timeline, any outstanding liens. Seller receives pre-listing prep checklist and photo analysis report.
-3. Research brief built on comparable sales and current market conditions in their area
-4. Client communication drafts listing presentation and follow-up cadence
-5. Transaction coordinator manages offer review, contingencies, closing timeline
-6. Compliance reviews all executed documents post-signature
+3. `07_vendor_team` activates for pre-listing prep — surfaces stager, photographer, handyman as needed
+4. Research brief built on comparable sales and current market conditions in their area
+5. Client communication drafts listing presentation and follow-up cadence
+6. Transaction coordinator manages offer review, contingencies, closing timeline
+7. Compliance reviews all executed documents post-signature
 
 ---
 
@@ -72,7 +79,7 @@ Work flows left to right. Each specialist receives a structured handoff from the
 **Day 1 — Read in this order:**
 
 1. This README — understand the architecture
-2. `06_agent_onboarding/overview.md` — see the full system as a visual flow chart
+2. `000_agent_onboarding/overview.md` — see the full system as a visual flow chart
 3. `00_orchestrator/identity.md` — understand how requests are routed
 4. Read the `identity.md` of whichever specialist matches your primary role
 5. Read that specialist's `rules.md` — these are non-negotiable
@@ -85,21 +92,31 @@ Every specialist folder is self-contained. You do not need to understand the who
 
 ---
 
-## Setup Before Use
+## Claude Projects Setup
 
-1. Open Claude (claude.ai or Claude Code)
-2. Create a new Project
-3. Upload the specialist folder for your role as Project Knowledge — or upload all folders if you are Diana managing the whole system
-4. The `identity.md` of each folder acts as the system prompt for that specialist
-5. Start every session by telling Claude which specialist you are working with: "You are the Lead Qualifier. A new buyer inquiry just came in."
+1. Open Claude (claude.ai)
+2. Click **Projects** in the left sidebar
+3. Create a new Project — name it "Diana's Real Estate System"
+4. Upload all specialist folders as Project Knowledge
+5. Every conversation inside this project has all specialists loaded — you never re-upload
 
-**No software to install. No platform to learn. The folders are the system.**
+**Start every conversation by telling Claude which specialist you need:**
+```
+You are the Lead Qualifier. A new buyer just called.
+Here is what they told me: [paste the lead info]
+```
+
+No software to install. No platform to learn. The folders are the system.
 
 ---
 
 ## Design Decisions
 
+**Agent onboarding first.** The 000 folder exists so no agent touches a live deal without understanding the system. It is the first stop — not an afterthought.
+
 **Buyer and seller prep funnel.** Before the agent is involved, the buyer is matched to down payment assistance programs and lenders. The seller gets a prep checklist and a photo-based staging report. The agent walks in ready to work — not chasing paperwork, not explaining basics.
+
+**Vendor Team as intelligence layer.** The Vendor Team does not wait to be asked. It reads the deal stage, property age, and inspection findings and tells the agent exactly who to call — with name and phone number — before the agent has to think about it.
 
 **Structured handoffs over free text.** Every specialist passes a labeled field block to the next one — not a paragraph summary. Any team member can pick up a deal mid-stream without calling Diana.
 
